@@ -9,7 +9,6 @@
     <!-- خوبصورت اردو اور انگریزی فونٹس -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     
-    <!-- 🎨 یہ رہا آپ کا پورا سی ایس ایس ڈیزائن جو ہم نے اسی فائل میں اکٹھا کر دیا ہے -->
     <style>
         /* تیر کے نشان کی خوبصورت اینیمیشن */
         @keyframes bounce {
@@ -23,9 +22,14 @@
             50% { height: 25px; }
         }
 
-        /* باڈی اور بیک گراؤنڈ */
+        /* باڈی اور بیک گراؤنڈ: طاہر بھائی یہاں ہم نے خالی جگہ پر میوزک کے نشان اور ہیڈ فونز بھر دیے ہیں */
         body {
-            background: #0a0a0a;
+            background-color: #050505;
+            /* خوبصورت ڈارک نائٹ ریڈون گلو کے ساتھ میوزک آئیکنز کا بیک گراؤنڈ */
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 0, 85, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 255, 204, 0.05) 0%, transparent 40%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23222222' fill-opacity='0.3'%3E%3Cpath d='M10 10h2v2h-2zm20 20h2v2h-2zm-20 40h2v2h-2zm60 0h2v2h-2zM40 10h2v2h-2zm0 60h2v2h-2zM60 30h2v2h-2zM15 45q2-4 5-4t5 4v15q0 3-2 5t-5 2-5-2-2-5v-15zm40-20q2-4 5-4t5 4v15q0 3-2 5t-5 2-5-2-2-5v-15z'/%3E%3C/g%3E%3C/svg%3E");
             color: #ffffff;
             font-family: 'Poppins', 'Noto Nastaliq Urdu', sans-serif;
             margin: 0;
@@ -34,6 +38,36 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            cursor: pointer; /* تاکہ یوزر کو پتہ چلے کہ کہیں بھی کلک کرنا ہے */
+        }
+
+        /* سائیڈوں پر ہیڈ فون اور میوزک کے بڑے خوبصورت واٹر مارک ڈیزائن جو کارڈز کے نیچے رہیں گے */
+        body::before {
+            content: "\f001  \f025  \f83e";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: fixed;
+            left: 5%;
+            top: 20%;
+            font-size: 80px;
+            color: rgba(255, 0, 85, 0.03);
+            z-index: 1;
+            pointer-events: none;
+            line-height: 2;
+        }
+
+        body::after {
+            content: "\f025  \f001  \f144";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: fixed;
+            right: 5%;
+            bottom: 20%;
+            font-size: 80px;
+            color: rgba(0, 255, 204, 0.03);
+            z-index: 1;
+            pointer-events: none;
+            line-height: 2;
         }
 
         .app-container {
@@ -41,9 +75,10 @@
             max-width: 450px;
             background: #121212;
             min-height: 100vh;
-            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+            box-shadow: 0 0 40px rgba(0,0,0,0.9);
             position: relative;
             padding-bottom: 30px;
+            z-index: 10; /* تاکہ مین ایپ سائیڈ والے آئیکنز کے اوپر رہے */
         }
 
         /* پروفائل کا حصہ */
@@ -76,15 +111,16 @@
             bottom: -5px;
             left: 50%;
             transform: translateX(-50%);
-            display: none; /* شروع میں غائب رہیں گی */
+            display: none; 
             align-items: flex-end;
             justify-content: center;
             gap: 3px;
             width: 60px;
             height: 30px;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0.8);
             border-radius: 10px;
             padding: 2px;
+            border: 1px solid #00ffcc;
         }
 
         .bar {
@@ -131,7 +167,7 @@
         .card-image-box {
             width: 120px;
             min-width: 120px;
-            height: 100px;
+            height: 115px;
         }
 
         .card-img {
@@ -155,9 +191,17 @@
         }
 
         .card-content p {
-            margin: 5px 0;
+            margin: 3px 0;
             font-size: 12px;
             color: #aaa;
+        }
+
+        /* کلک کریں اور سنیں ٹیکسٹ */
+        .listen-text-hint {
+            font-size: 11px;
+            color: #00ffcc;
+            margin-bottom: 4px;
+            font-weight: 500;
         }
 
         /* سبسکرائب نیون بٹن */
@@ -210,9 +254,9 @@
 </head>
 <body>
 
-    <!-- اوپر والا چمکتا ہوا نوٹس جو کلک کرتے ہی غائب ہو جائے گا -->
-    <div id="voice-notice" style="background: linear-gradient(90deg, #ff0055, #00ffcc); color: #000; text-align: center; padding: 10px; font-weight: bold; font-size: 14px; position: sticky; top: 0; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.5); font-family: 'Poppins', sans-serif;">
-       🎵 Click anywhere on the page to hear the Bollywood-style story voice!
+    <!-- اوپر والا چمکتا ہوا نوٹس جو اسکرین پر کہیں بھی ٹچ کرتے ہی غائب ہو جائے گا -->
+    <div id="voice-notice" style="background: linear-gradient(90deg, #ff0055, #00ffcc); color: #000; text-align: center; padding: 12px; font-weight: bold; font-size: 14px; position: sticky; top: 0; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.5); font-family: 'Poppins', sans-serif;">
+       🎵 آواز سننے کے لیے اسکرین پر کہیں بھی ایک بار ٹچ (Click) کریں!
     </div>
 
     <div class="app-container">
@@ -244,12 +288,12 @@
             </div>
         </header>
 
-        <!-- اباؤٹ اسٹوری سیکشن (کوڈ میں بالکل محفوظ اور قید - سامنے نظر نہیں آئے گی لیکن آواز پوری چلے گی) -->
+        <!-- اباؤٹ اسٹوری سیکشن (کوڈ میں بالکل محفوظ اور قید) -->
         <div style="display: none;">
             <p id="story-paragraph">
-                میوزک کی دنیا میں طاہر نذیر کا یہ جنون سال 2010 میں شروع ہوا، جب میں نے پہلی بار یو یو ہنی سنگھ کو سننا شروع کیا۔ سننے کے ساتھ ہی طاہر نذیر کے اندر کا آرٹسٹ جاگ اٹھا اور میں نے ریپ گانے پکارنے اور رٹنے شروع کر دیے۔ دوستوں اور آس پاس کے لوگوں کو سناتا تو سب طاہر نذیر کو ہنی سنگھ کے نام سے ہی پکارنے لگے، اور یہیں سے اس پاپ ہیرو کا خواب بڑا ہوتا گیا۔
+                میوزک کی دنیا میں طاہر نذیر کا یہ جنون سال 2010 میں شروع ہوا، جب میں نے پہلی بار یو یو ہنی سنگھ کو سننا شروع کیا۔ سننے کے ساتھ ہی طاہر نذیر کے اندر کا آرٹسٹ جاگ اٹھا اور میں نے ریپ گانے پکارنے اور رٹنے شروع کر دیے۔ دوستوں اور آس پاس کے لوگوں کو سناتا تو सब طاہر نذیر کو ہنی سنگھ کے نام سے ہی پکارنے لگے، اور یہیں سے اس پاپ ہیرو کا خواب بڑا ہوتا گیا۔
                 پھر سال 2015 میں طاہر نذیر نے خود گانے لکھنے کا آغاز کیا۔ وہ وقت بہت مشکل تھا، غریبی کا دور تھا اور کالے خاں دی جوک کے اس نوجوان کے پاس اسٹوڈیو جانے کے پیسے نہیں ہوتے تھے۔ طاہر نذیر کبھی کسی دوست کو ساتھ لے جاتا، کبھی کسی کو، اور کہتا کہ آدھے پیسے تم ڈالو اور آدھے میں ڈالوں گا تاکہ گانا ریکارڈ ہو سکے۔ اس اسٹرگل میں کئی بار لوگوں نے طاہر نذیر کو داغ بھی لگایا، دھوکے دیے، لیکن طاہر نذیر رکنے والا نہیں تھا۔
-                ایک بڑا موڑ سن 2021 میں آیا۔ طاہر نذیر کے پاس اپنا موبائل تک نہیں تھا، تو روڈ پہ ایک پکی کمپیوٹر والی دکان تھی جہاں لوگوں کو میموری کارڈ بھر کر دیے جاتے تھے۔ سن 2021 میں، میں وہاں خان بہادر خان بلوچ سے نیٹ والا موبائل لیا کرتا تھا، انہیں پیسے دیتا تھا اور وہ بدلے میں مجھے نیٹ استعمال کرنے کے لیے ایک یا ڈیڑھ گھنٹہ موبائل دیتے تھے۔ اسی محدود وقت میں طاہر نذیر نے انٹرنیٹ سے میوزک پروڈکشن کی باریکیاں سیکھیں۔
+                ایک بڑا موڑ سن 2021 میں آیا۔ طاہر نذیر کے پاس اپنا موبائل تک نہیں تھا، تو روڈ پہ ایک پکی کمپیوٹر والی دکان تھی جہاں لوگوں کو میموری کارڈ بھر کر دیے جاتے تھے۔ سن 2021 میں، میں وہاں خان بہادر خان بلوچ سے نیٹ والا موبائل لیا کرتا تھا، انہیں پیسے دیتا تھا اور وہ بدلے میں مجھے نیٹ استعمال کرنے کے لیے ایک یا ڈیڑھ گھنٹہ موبائل دیتے تھے۔ اسی محدود وقت میں طاہر نذیر نے internet سے میوزک پروڈکشن کی باریکیاں سیکھیں۔
                 بالآخر، سال 2023 میں طاہر نذیر نے اپنا خود کا فون لیا اور اس میں میوزک ایپ ڈال کر پروفیشنل کام شروع کیا۔ آج طاہر نذیر دن میں مزدوری کرتا ہے اور رات کو اپنے خوابوں کو سچ کرنے کے لیے پروفیشنل گانے, شاندار میوزک، قصیدے اور نعتیں اپلوڈ کرتا ہے۔ طاہر نذیر ابھی رکا نہیں ہے، کامیابی کی طرف قدم بڑھا رہا ہے اور آہستہ آہستہ اپنا نام بنا رہا ہے۔ 
                 یہ کہانی ہے کالے خاں دی جوک کے طاہر نذیر کی، جس کا سفر اب وائرل ہونے کے لیے تیار ہے! میری اس مزدوری, محنت اور مشقت کے ساتھ ساتھ میرے میوزک کو سنیں اور اس فیلنگ کو محسوس کریں۔ آؤ میرے چینلز پر اور دیکھو یو یو ہنی سنگھ اسٹائل کا دھماکے دار ہپ ہاپ میوزک، سنگنگ اور وہ خاص اسلامک پروجیکٹس جہاں ہر طرح کا کلام, نعتیں اور منفرد ہٹ قصیدے شاندار میوزک اور نئی چیزوں کے ساتھ تیار کیے گئے ہیں۔ جو لوگ ایک الگ انداز میں قصیدے اور پاک کلام سننا چاہتے ہیں، وہ یہاں آئیں اور میری محنت دیکھیں۔ میری اس اسٹرگل کا حصہ بننے کے لیے میرے تینوں چینلز کو لازمی سبسکرائب کریں۔
             </p>
@@ -266,7 +310,8 @@
                 </div>
                 <div class="card-content">
                     <h3>Malik Music Hip Hop</h3>
-                    <p>Naacho Saare اور زبردست کمرشل ہپ ہاپ گانے</p>
+                    <p>Naacho Saare اور زبردست ہپ ہاپ گانے</p>
+                    <div class="listen-text-hint"><i class="fas fa-headphones-alt"></i> کلک کریں اور سنیں</div>
                     <div class="subscribe-btn-neon">
                         <span><i class="fab fa-youtube"></i> سبسکرائب کریں</span>
                     </div>
@@ -280,7 +325,8 @@
                 </div>
                 <div class="card-content">
                     <h3>Malik Music Vibe</h3>
-                    <p>خالص ڈیجیٹل میوزک، فون رنگ ٹونز اور زبردست کال ٹیو نز</p>
+                    <p>خالص ڈیجیٹل میوزک اور فون رنگ ٹونز</p>
+                    <div class="listen-text-hint"><i class="fas fa-headphones-alt"></i> کلک کریں اور سنیں</div>
                     <div class="subscribe-btn-neon">
                         <span><i class="fab fa-youtube"></i> سبسکرائب کریں</span>
                     </div>
@@ -294,7 +340,8 @@
                 </div>
                 <div class="card-content">
                     <h3>Aks-e-Kalaam Official</h3>
-                    <p>یا علی مولا علی کلام، نعتیں اور منفرد ہٹ قصیدے</p>
+                    <p>یا علی کلام، نعتیں اور منفرد ہٹ قصیدے</p>
+                    <div class="listen-text-hint"><i class="fas fa-headphones-alt"></i> کلک کریں اور سنیں</div>
                     <div class="subscribe-btn-neon">
                         <span><i class="fab fa-youtube"></i> سبسکرائب کریں</span>
                     </div>
@@ -325,41 +372,50 @@
         </footer>
     </div>
 
-    <!-- 🔮 یہ رہا آپ کا پورا جادوئی وائس کنٹرول جاوا سکرپٹ کوڈ جو اسی فائل میں فٹ ہے -->
+    <!-- 🔮 ہائی ٹیک آٹو وائس سسٹم - اسکرین پر کہیں بھی ٹچ کریں، آواز 100% گونجے گی -->
     <script>
-        document.addEventListener('click', function() {
+        function triggerVoice() {
             var storyText = document.getElementById('story-paragraph').innerText;
+            var bars = document.getElementById('music-bars');
+            var notice = document.getElementById('voice-notice');
             
-            // پرانی آوازیں بند کریں
+            // پرانی اسپیچ کو فوری کینسل کریں تاکہ نیا کلک فریش فائر ہو
             window.speechSynthesis.cancel();
             
-            // خوبصورت بالی ووڈ ڈائیلاگ اور گائیڈ آواز سیٹ اپ
+            // اینڈرائیڈ کروم اور موبائل براؤزرز کے لیے ماسٹر ٹریگر
             var speech = new SpeechSynthesisUtterance(storyText);
+            
             speech.lang = 'ur-PK';      
             speech.pitch = 1.05;        
-            speech.rate = 0.90; // بولنے کی رفتار بہت پرفیکٹ رکھی ہے تاکہ اثر پیدا ہو
+            speech.rate = 0.88; // بہترین پروفیشنل اور ڈیپ اسپیڈ
 
-            // آواز شروع ہونے پر لہریں چلیں گی اور نوٹس غائب ہوگا
             speech.onstart = function() {
-                var bars = document.getElementById('music-bars');
-                if(bars) {
-                    bars.style.display = 'flex'; 
-                }
-                var notice = document.getElementById('voice-notice');
+                if(bars) { bars.style.display = 'flex'; }
                 if(notice) { notice.style.display = 'none'; }
             };
 
-            // آواز ختم ہونے پر لہریں رک جائیں گی
             speech.onend = function() {
-                var bars = document.getElementById('music-bars');
-                if(bars) {
-                    bars.style.display = 'none';
-                }
+                if(bars) { bars.style.display = 'none'; }
             };
 
-            // آواز پلے کریں
+            speech.onerror = function(e) {
+                console.log("Speech Error:", e);
+                if(bars) { bars.style.display = 'none'; }
+            };
+
+            // پلے انجن کمانڈ جو موبائل ریسٹرکشن بائی پاس کرے گا
             window.speechSynthesis.speak(speech);
-            
+        }
+
+        // پورے پیج پر کہیں بھی کلک کرنے پر آواز چلانے کا فول پروف سسٹم
+        document.addEventListener('click', function startEngine() {
+            triggerVoice();
+            // لیسنر نہیں ہٹایا تاکہ اگر یوزر دوبارہ سننا چاہے تو ورک کرے، لیکن دوبارہ شروع کرنے کے لیے اسمارٹ کینسل لگا ہوا ہے
+        });
+
+        // موبائل ٹچ اسکرینز کے لیے بیک اپ لاک
+        document.addEventListener('touchstart', function startEngineTouch() {
+            triggerVoice();
         }, { once: true });
     </script>
 </body>
