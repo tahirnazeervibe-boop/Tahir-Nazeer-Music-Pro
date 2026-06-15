@@ -1,0 +1,313 @@
+/* --- گلوبل سیٹنگز اور ری سیٹ --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Noto Nastaliq Urdu', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #06040a, #0c0817, #140b24);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 10px;
+    overflow-x: hidden;
+}
+
+/* --- مین ایپ کنٹینر (بالکل سینٹر اور موبائل سائز) --- */
+.app-container {
+    width: 100%;
+    max-width: 460px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 25px;
+    padding: 25px 18px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- ہیڈر: پروفائل تصویر اور نام --- */
+.profile-header {
+    text-align: center;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.profile-img-container {
+    position: relative;
+    width: 125px;
+    height: 125px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(45deg, #ff0055, #7f00ff, #00f0ff);
+    box-shadow: 0 0 25px rgba(127, 0, 255, 0.5);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #06040a;
+}
+
+/* میوزک ویوز اینیمیشن (کلی 1) */
+.music-wave-box {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 50px;
+    height: 30px;
+    margin: 10px auto 0;
+    gap: 3px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.music-wave-box.playing {
+    opacity: 1;
+}
+
+.bar {
+    width: 4px;
+    height: 5px;
+    background: #00f0ff;
+    border-radius: 2px;
+    animation: bounce 1s ease-in-out infinite alternate;
+}
+.bar:nth-child(2) { background: #ff0055; animation-delay: 0.2s; }
+.bar:nth-child(3) { background: #7f00ff; animation-delay: 0.4s; }
+.bar:nth-child(4) { background: #00f0ff; animation-delay: 0.6s; }
+
+@keyframes bounce {
+    0% { height: 5px; }
+    100% { height: 28px; }
+}
+
+.artist-name {
+    font-size: 26px;
+    font-weight: 700;
+    background: linear-gradient(to left, #ffffff, #a180ff, #ff80df);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 6px;
+}
+
+.artist-tagline {
+    font-size: 13px;
+    color: #b3b3cc;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.artist-location {
+    font-size: 12px;
+    color: #00f0ff;
+    background: rgba(0, 240, 255, 0.1);
+    padding: 4px 14px;
+    border-radius: 20px;
+    display: inline-block;
+    border: 1px solid rgba(0, 240, 255, 0.15);
+}
+
+.artist-location i {
+    margin-left: 6px;
+}
+
+/* --- کہانی کا باکس --- */
+.story-section {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.story-text-box h3 {
+    font-size: 18px;
+    color: #ff0055;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 8px;
+}
+
+.story-text-box h3 i {
+    margin-left: 8px;
+}
+
+#story-paragraph {
+    font-size: 14px;
+    color: #e0e0f0;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+#story-paragraph strong {
+    color: #fff;
+    display: block;
+    margin-top: 15px;
+    background: linear-gradient(rgba(255, 0, 85, 0.15), rgba(127, 0, 255, 0.15));
+    padding: 12px;
+    border-radius: 12px;
+    border-right: 4px solid #ff0055;
+}
+
+/* --- یوٹیوب چینل کارڈز --- */
+.channels-section {
+    width: 100%;
+}
+
+.section-title {
+    font-size: 19px;
+    text-align: center;
+    margin-bottom: 22px;
+    color: #a180ff;
+}
+
+.channel-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    margin-bottom: 22px;
+    text-decoration: none;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.channel-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 240, 255, 0.3);
+    box-shadow: 0 15px 30px rgba(0, 240, 255, 0.15);
+}
+
+.card-image-box {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.channel-card:hover .card-img {
+    transform: scale(1.08);
+}
+
+.card-content {
+    padding: 16px;
+}
+
+.card-content h3 {
+    font-size: 17px;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.card-content p {
+    font-size: 13px;
+    color: #b3b3cc;
+    margin-bottom: 12px;
+}
+
+/* نیون سبسکرائب بٹن (کلی 2) */
+.subscribe-btn-neon {
+    display: inline-block;
+    background: rgba(255, 0, 85, 0.1);
+    border: 1px solid #ff0055;
+    padding: 8px 16px;
+    border-radius: 50px;
+    color: #ff0055;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 0, 85, 0.2);
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.channel-card:hover .subscribe-btn-neon {
+    background: #ff0055;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.6);
+}
+
+/* واٹس ایپ کنیکٹ پینل (کلی 3) */
+.whatsapp-connect-section {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.whatsapp-card {
+    display: flex;
+    align-items: center;
+    background: rgba(37, 211, 102, 0.08);
+    border: 1px solid rgba(37, 211, 102, 0.2);
+    border-radius: 20px;
+    padding: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-card:hover {
+    background: rgba(37, 211, 102, 0.2);
+    border-color: #25d366;
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.3);
+}
+
+.wa-icon {
+    font-size: 32px;
+    color: #25d366;
+    margin-left: 15px;
+}
+
+.wa-text h4 {
+    font-size: 15px;
+    color: #ffffff;
+    margin-bottom: 3px;
+}
+
+.wa-text p {
+    font-size: 12px;
+    color: #a0a0c0;
+}
+
+/* --- فوٹر --- */
+.app-footer {
+    text-align: center;
+    margin-top: 15px;
+    width: 100%;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 15px;
+}
+
+.app-footer p {
+    font-size: 11px;
+    color: #555566;
+}
+
+html {
+    scroll-behavior: smooth;
+}
