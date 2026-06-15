@@ -8,10 +8,212 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- خوبصورت اردو اور انگریزی فونٹس -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <!-- ڈیزائن فائل کا لنک -->
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- 🎨 یہ رہا آپ کا پورا سی ایس ایس ڈیزائن جو ہم نے اسی فائل میں اکٹھا کر دیا ہے -->
+    <style>
+        /* تیر کے نشان کی خوبصورت اینیمیشن */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        /* آواز کے وقت ہلنے والی لہروں کی اینیمیشن */
+        @keyframes wave {
+            0%, 100% { height: 5px; }
+            50% { height: 25px; }
+        }
+
+        /* باڈی اور بیک گراؤنڈ */
+        body {
+            background: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Poppins', 'Noto Nastaliq Urdu', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 450px;
+            background: #121212;
+            min-height: 100vh;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+            position: relative;
+            padding-bottom: 30px;
+        }
+
+        /* پروفائل کا حصہ */
+        .profile-header {
+            text-align: center;
+            padding: 40px 20px 20px 20px;
+            background: linear-gradient(to bottom, #1f1f1f, #121212);
+            border-bottom: 1px solid #222;
+        }
+
+        .profile-img-container {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 15px auto;
+        }
+
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ff0055;
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.5);
+        }
+
+        /* میوزک بارز لہریں */
+        .music-wave-box {
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: none; /* شروع میں غائب رہیں گی */
+            align-items: flex-end;
+            justify-content: center;
+            gap: 3px;
+            width: 60px;
+            height: 30px;
+            background: rgba(0,0,0,0.7);
+            border-radius: 10px;
+            padding: 2px;
+        }
+
+        .bar {
+            width: 4px;
+            height: 5px;
+            background-color: #00ffcc;
+            border-radius: 2px;
+            animation: wave 0.6s infinite ease-in-out;
+        }
+        .bar:nth-child(2) { animation-delay: 0.15s; background-color: #ff0055; }
+        .bar:nth-child(3) { animation-delay: 0.3s; background-color: #f1c40f; }
+        .bar:nth-child(4) { animation-delay: 0.45s; background-color: #00ffcc; }
+
+        /* یوٹیوب چینل کارڈز کا ڈیزائن */
+        .channels-section {
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 20px;
+            border-right: 4px solid #ff0055;
+            padding-right: 10px;
+        }
+
+        .channel-card {
+            display: flex;
+            background: #1e1e1e;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #fff;
+            overflow: hidden;
+            border: 1px solid #2a2a2a;
+            transition: 0.3s;
+        }
+
+        .channel-card:hover {
+            transform: scale(1.02);
+            border-color: #ff0055;
+        }
+
+        .card-image-box {
+            width: 120px;
+            min-width: 120px;
+            height: 100px;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .card-content h3 {
+            margin: 0;
+            font-size: 15px;
+            color: #fff;
+        }
+
+        .card-content p {
+            margin: 5px 0;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        /* سبسکرائب نیون بٹن */
+        .subscribe-btn-neon {
+            background: #ff0000;
+            color: #fff;
+            text-align: center;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            align-self: flex-start;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+        }
+
+        /* واٹس ایپ سیکشن */
+        .whatsapp-connect-section {
+            padding: 0 20px;
+            margin-top: 10px;
+        }
+
+        .whatsapp-card {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            padding: 15px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(56, 239, 125, 0.3);
+        }
+
+        .wa-icon {
+            font-size: 30px;
+            margin-left: 15px;
+        }
+
+        .wa-text h4 { margin: 0; font-size: 15px; }
+        .wa-text p { margin: 3px 0 0 0; font-size: 12px; color: #e0eee0; }
+
+        /* فوٹر */
+        .app-footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 11px;
+            color: #555;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- اوپر والا چمکتا ہوا نوٹس جو کلک کرتے ہی غائب ہو جائے گا -->
+    <div id="voice-notice" style="background: linear-gradient(90deg, #ff0055, #00ffcc); color: #000; text-align: center; padding: 10px; font-weight: bold; font-size: 14px; position: sticky; top: 0; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.5); font-family: 'Poppins', sans-serif;">
+       🎵 Click anywhere on the page to hear the Bollywood-style story voice!
+    </div>
 
     <div class="app-container">
         
@@ -21,7 +223,7 @@
                 <!-- آپ کی مین پروفیشنل فوٹو -->
                 <img src="main-profile.jpg" alt="Tahir Nazeer" class="profile-img">
                 
-                <!-- لائیو وائس ویوز اینیمیشن (جب آواز چلے گی تو یہ لہریں ہلیں گی) -->
+                <!-- لائیو وائس ویوز اینیمیشن -->
                 <div class="music-wave-box" id="music-bars">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -30,30 +232,30 @@
                 </div>
             </div>
             
-            <h1 class="artist-name">Tahir Nazeer Music Pro</h1>
-            <p class="artist-tagline">Singer | Music Producer | Songwriter</p>
-            <p class="artist-location"><i class="fas fa-map-marker-alt"></i> کالے خاں دی جوک</p>
+            <!-- تصویر کے نیچے آپ کا نام اور پروفیشن انگلش میں -->
+            <h1 class="artist-name" style="background: linear-gradient(45deg, #ff0055, #f1c40f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 28px; margin-top: 10px;">Tahir Nazeer</h1>
+            <p class="artist-tagline" style="color: #00ffcc; font-family: 'Poppins', sans-serif; font-size: 16px; letter-spacing: 1px; font-weight: 500; margin-top: 2px;">Singer & Music Composer</p>
+            <p class="artist-location" style="font-size: 13px; color: #bbb; margin-top: 5px;"><i class="fas fa-map-marker-alt" style="color: #ff0055;"></i> کالے خاں دی جوک</p>
+
+            <!-- مائی پروجیکٹس ریویو اور اینیمیٹڈ تیر کا نشان -->
+            <div class="projects-pointer" style="margin-top: 20px; margin-bottom: 10px;">
+                <p style="font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: bold; color: #fff; letter-spacing: 1px; text-transform: uppercase;">My Projects Review</p>
+                <div class="animated-arrow" style="font-size: 24px; margin-top: 5px; animation: bounce 1s infinite;">👇</div>
+            </div>
         </header>
 
-        <!-- اباؤٹ اسٹوری سیکشن -->
-        <section class="story-section">
-            <div class="story-text-box">
-                <h3><i class="fas fa-comment-dots"></i> میری کہانی (My Story)</h3>
-                <p id="story-paragraph">
-                    میوزک کی دنیا میں طاہر نذیر کا یہ جنون سال 2010 میں شروع ہوا، جب میں نے پہلی بار یو یو ہنی سنگھ کو سننا شروع کیا۔ سننے کے ساتھ ہی طاہر نذیر کے اندر کا آرٹسٹ جاگ اٹھا اور میں نے ریپ گانے پکارنے اور رٹنے شروع کر دیے۔ دوستوں اور آس پاس کے لوگوں کو سناتا تو سب طاہر نذیر کو ہنی سنگھ کے نام سے ہی پکارنے لگے، اور یہیں سے اس پاپ ہیرو کا خواب بڑا ہوتا گیا۔
-                    <br><br>
-                    پھر سال 2015 میں طاہر نذیر نے خود گانے لکھنے کا آغاز کیا۔ وہ وقت بہت مشکل تھا، غریبی کا دور تھا اور کالے خاں دی جوک کے اس نوجوان کے پاس اسٹوڈیو جانے کے پیسے نہیں ہوتے تھے۔ طاہر نذیر کبھی کسی دوست کو ساتھ لے جاتا، کبھی کسی کو، اور کہتا کہ آدھے پیسے تم ڈالو اور آدھے میں ڈالوں گا تاکہ گانا ریکارڈ ہو سکے۔ اس اسٹرگل میں کئی بار لوگوں نے طاہر نذیر کو داغ بھی لگایا، دھوکے دیے، لیکن طاہر نذیر رکنے والا نہیں تھا۔
-                    <br><br>
-                    ایک بڑا موڑ سن 2021 میں آیا۔ طاہر نذیر کے پاس اپنا موبائل تک نہیں تھا، تو روڈ پہ ایک پکی کمپیوٹر والی دکان تھی جہاں لوگوں کو میموری کارڈ بھر کر دیے جاتے تھے۔ سن 2021 میں، میں وہاں خان بہادر خان بلوچ سے نیٹ والا موبائل لیا کرتا تھا، انہیں پیسے دیتا تھا اور وہ بدلے میں مجھے نیٹ استعمال کرنے کے لیے ایک یا ڈیڑھ گھنٹہ موبائل دیتے تھے۔ اسی محدود وقت میں طاہر نذیر نے انٹرنیٹ سے میوزک پروڈکشن کی باریکیاں سیکھیں۔
-                    <br><br>
-                    بالآخر، سال 2023 میں طاہر نذیر نے اپنا خود کا فون لیا اور اس میں میوزک ایپ ڈال کر پروفیشنل کام شروع کیا۔ آج طاہر نذیر دن میں مزدوری کرتا ہے اور رات کو اپنے خوابوں کو سچ کرنے کے لیے پروفیشنل گانے, شاندار میوزک، قصیدے اور نعتیں اپلوڈ کرتا ہے۔ طاہر نذیر ابھی رکا نہیں ہے، کامیابی کی طرف قدم بڑھا رہا ہے اور آہستہ آہستہ اپنا نام بنا رہا ہے۔ 
-                    <br><br>
-                    <strong>یہ کہانی ہے کالے خاں دی جوک کے طاہر نذیر کی، جس کا سفر اب وائرل ہونے کے لیے تیار ہے! میری اس مزدوری، محنت اور مشقت کے ساتھ ساتھ میرے میوزک کو سنیں اور اس فیلنگ کو محسوس کریں۔ آؤ میرے چینلز پر اور دیکھو یو یو ہنی سنگھ اسٹائل کا دھماکے دار ہپ ہاپ میوزک، سنگنگ اور وہ خاص اسلامک پروجیکٹس جہاں ہر طرح کا کلام, نعتیں اور منفرد ہٹ قصیدے شاندار میوزک اور نئی چیزوں کے ساتھ تیار کیے گئے ہیں۔ جو لوگ ایک الگ انداز میں قصیدے اور پاک کلام سننا چاہتے ہیں، وہ یہاں آئیں اور میری محنت دیکھیں۔ میری اس اسٹرگل کا حصہ بننے کے لیے میرے تینوں چینلز کو لازمی سبسکرائب کریں۔</strong>
-                </p>
-            </div>
-        </section>
+        <!-- اباؤٹ اسٹوری سیکشن (کوڈ میں بالکل محفوظ اور قید - سامنے نظر نہیں آئے گی لیکن آواز پوری چلے گی) -->
+        <div style="display: none;">
+            <p id="story-paragraph">
+                میوزک کی دنیا میں طاہر نذیر کا یہ جنون سال 2010 میں شروع ہوا، جب میں نے پہلی بار یو یو ہنی سنگھ کو سننا شروع کیا۔ سننے کے ساتھ ہی طاہر نذیر کے اندر کا آرٹسٹ جاگ اٹھا اور میں نے ریپ گانے پکارنے اور رٹنے شروع کر دیے۔ دوستوں اور آس پاس کے لوگوں کو سناتا تو سب طاہر نذیر کو ہنی سنگھ کے نام سے ہی پکارنے لگے، اور یہیں سے اس پاپ ہیرو کا خواب بڑا ہوتا گیا۔
+                پھر سال 2015 میں طاہر نذیر نے خود گانے لکھنے کا آغاز کیا۔ وہ وقت بہت مشکل تھا، غریبی کا دور تھا اور کالے خاں دی جوک کے اس نوجوان کے پاس اسٹوڈیو جانے کے پیسے نہیں ہوتے تھے۔ طاہر نذیر کبھی کسی دوست کو ساتھ لے جاتا، کبھی کسی کو، اور کہتا کہ آدھے پیسے تم ڈالو اور آدھے میں ڈالوں گا تاکہ گانا ریکارڈ ہو سکے۔ اس اسٹرگل میں کئی بار لوگوں نے طاہر نذیر کو داغ بھی لگایا، دھوکے دیے، لیکن طاہر نذیر رکنے والا نہیں تھا۔
+                ایک بڑا موڑ سن 2021 میں آیا۔ طاہر نذیر کے پاس اپنا موبائل تک نہیں تھا، تو روڈ پہ ایک پکی کمپیوٹر والی دکان تھی جہاں لوگوں کو میموری کارڈ بھر کر دیے جاتے تھے۔ سن 2021 میں، میں وہاں خان بہادر خان بلوچ سے نیٹ والا موبائل لیا کرتا تھا، انہیں پیسے دیتا تھا اور وہ بدلے میں مجھے نیٹ استعمال کرنے کے لیے ایک یا ڈیڑھ گھنٹہ موبائل دیتے تھے۔ اسی محدود وقت میں طاہر نذیر نے انٹرنیٹ سے میوزک پروڈکشن کی باریکیاں سیکھیں۔
+                بالآخر، سال 2023 میں طاہر نذیر نے اپنا خود کا فون لیا اور اس میں میوزک ایپ ڈال کر پروفیشنل کام شروع کیا۔ آج طاہر نذیر دن میں مزدوری کرتا ہے اور رات کو اپنے خوابوں کو سچ کرنے کے لیے پروفیشنل گانے, شاندار میوزک، قصیدے اور نعتیں اپلوڈ کرتا ہے۔ طاہر نذیر ابھی رکا نہیں ہے، کامیابی کی طرف قدم بڑھا رہا ہے اور آہستہ آہستہ اپنا نام بنا رہا ہے۔ 
+                یہ کہانی ہے کالے خاں دی جوک کے طاہر نذیر کی، جس کا سفر اب وائرل ہونے کے لیے تیار ہے! میری اس مزدوری, محنت اور مشقت کے ساتھ ساتھ میرے میوزک کو سنیں اور اس فیلنگ کو محسوس کریں۔ آؤ میرے چینلز پر اور دیکھو یو یو ہنی سنگھ اسٹائل کا دھماکے دار ہپ ہاپ میوزک، سنگنگ اور وہ خاص اسلامک پروجیکٹس جہاں ہر طرح کا کلام, نعتیں اور منفرد ہٹ قصیدے شاندار میوزک اور نئی چیزوں کے ساتھ تیار کیے گئے ہیں۔ جو لوگ ایک الگ انداز میں قصیدے اور پاک کلام سننا چاہتے ہیں، وہ یہاں آئیں اور میری محنت دیکھیں۔ میری اس اسٹرگل کا حصہ بننے کے لیے میرے تینوں چینلز کو لازمی سبسکرائب کریں۔
+            </p>
+        </div>
 
-        <!-- تینوں چینلز کا برانڈڈ حصہ -->
+        <!-- تینوں چینلز کا حصہ -->
         <section class="channels-section">
             <h2 class="section-title">میرے آفیشل یوٹیوب چینلز</h2>
             
@@ -110,6 +312,11 @@
                     <p>میوزک پروڈکشن اور بزنس ڈیلز کے لیے لائیو چیٹ</p>
                 </div>
             </a>
+            <!-- ورکرز ریٹنگز -->
+            <div class="rating-box" style="margin-top: 15px; font-size: 14px; color: #f1c40f; text-align: center;">
+                <span>ورکرز سٹار ریٹنگ: </span>
+                <span class="stars" style="font-size: 16px;">⭐⭐⭐⭐⭐</span>
+            </div>
         </section>
 
         <!-- فوٹر -->
@@ -118,7 +325,42 @@
         </footer>
     </div>
 
-    <!-- کنٹرول فائل کا لنک -->
-    <script src="script.js"></script>
+    <!-- 🔮 یہ رہا آپ کا پورا جادوئی وائس کنٹرول جاوا سکرپٹ کوڈ جو اسی فائل میں فٹ ہے -->
+    <script>
+        document.addEventListener('click', function() {
+            var storyText = document.getElementById('story-paragraph').innerText;
+            
+            // پرانی آوازیں بند کریں
+            window.speechSynthesis.cancel();
+            
+            // خوبصورت بالی ووڈ ڈائیلاگ اور گائیڈ آواز سیٹ اپ
+            var speech = new SpeechSynthesisUtterance(storyText);
+            speech.lang = 'ur-PK';      
+            speech.pitch = 1.05;        
+            speech.rate = 0.90; // بولنے کی رفتار بہت پرفیکٹ رکھی ہے تاکہ اثر پیدا ہو
+
+            // آواز شروع ہونے پر لہریں چلیں گی اور نوٹس غائب ہوگا
+            speech.onstart = function() {
+                var bars = document.getElementById('music-bars');
+                if(bars) {
+                    bars.style.display = 'flex'; 
+                }
+                var notice = document.getElementById('voice-notice');
+                if(notice) { notice.style.display = 'none'; }
+            };
+
+            // آواز ختم ہونے پر لہریں رک جائیں گی
+            speech.onend = function() {
+                var bars = document.getElementById('music-bars');
+                if(bars) {
+                    bars.style.display = 'none';
+                }
+            };
+
+            // آواز پلے کریں
+            window.speechSynthesis.speak(speech);
+            
+        }, { once: true });
+    </script>
 </body>
 </html>
