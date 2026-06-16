@@ -32,7 +32,14 @@
             50% { height: 25px; }
         }
 
-        /* باڈی اور بیک گراؤنڈ: رنگین گلو اور کلاسک واٹر مارک ڈیزائن مکس */
+        /* 🌟 چمکتے اور لہراتے ہوئے پلے بٹن کی دھماکے دار اینیمیشن */
+        @keyframes pulseGlow {
+            0% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 0, 85, 0.6); }
+            50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(0, 255, 204, 0.9), 0 0 10px rgba(255, 0, 85, 0.8); }
+            100% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 0, 85, 0.6); }
+        }
+
+        /* باڈی اور بیک گراؤنڈ */
         body {
             background-color: #06060c;
             background-image: 
@@ -48,10 +55,9 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            cursor: pointer;
         }
 
-        /* سائیڈوں پر ہیڈ فون اور میوزک کے بڑے خوبصورت واٹر مارک ڈیزائن */
+        /* سائیڈوں پر واٹر مارک ڈیزائن */
         body::before {
             content: "\f001  \f025  \f83e";
             font-family: "Font Awesome 6 Free";
@@ -147,6 +153,30 @@
         .bar:nth-child(2) { animation-delay: 0.15s; background-color: #ff0055; }
         .bar:nth-child(3) { animation-delay: 0.3s; background-color: #f1c40f; }
         .bar:nth-child(4) { animation-delay: 0.45s; background-color: #00ffcc; }
+
+        /* 🌟 لہراتا اور چمکتا ہوا آڈیو پلے بٹن اسٹائل */
+        .neon-voice-btn {
+            background: linear-gradient(45deg, #ff0055, #00ffcc);
+            color: #000000;
+            font-family: 'Poppins', 'Noto Nastaliq Urdu', sans-serif;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 12px 25px;
+            margin: 20px auto 10px auto;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            animation: pulseGlow 1.5s infinite ease-in-out;
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.5);
+        }
+
+        .neon-voice-btn:active {
+            transform: scale(0.95);
+        }
 
         /* یوٹیوب چینل کے چوڑے کارڈز */
         .channels-section {
@@ -267,9 +297,9 @@
 </head>
 <body>
 
-    <!-- 🌟 چمکتا ہوا کلاسک نوٹس بار (یہاں موجود ہے) -->
+    <!-- 🌟 چمکتا ہوا ٹاپ نوٹس بار -->
     <div id="voice-notice" style="background: linear-gradient(90deg, #ff0055, #00ffcc); color: #000; text-align: center; padding: 12px; font-weight: bold; font-size: 14px; position: sticky; top: 0; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.5); font-family: 'Poppins', sans-serif;">
-       🎵 آواز اور میوزک سننے کے لیے اسکرین پر کہیں بھی ایک بار ٹچ (Click) کریں!
+       🎵 آواز اور میوزک سننے کے لیے نیچے دیے گئے لہراتے بٹن پر کلک کریں!
     </div>
 
     <div class="app-container">
@@ -297,7 +327,14 @@
             <p class="artist-tagline" style="color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 14px; letter-spacing: 1px; font-weight: 500; margin-top: 8px;">Singer & Music Composer</p>
             <p class="artist-location" style="font-size: 13px; color: #bbb; margin-top: 5px;"><i class="fas fa-map-marker-alt" style="color: #ff0055;"></i> کالے خاں دی جوک</p>
 
-            <div class="projects-pointer" style="margin-top: 20px; margin-bottom: 10px;">
+            <!-- 🌟 طاہر بھائی کا خاص لہراتا ہوا اور چمکتا ہوا بٹن آواز پلے کرنے کے لیے 🌟 -->
+            <div>
+                <button class="neon-voice-btn" onclick="triggerVoice()">
+                    <i class="fas fa-volume-up"></i> آواز سننے کے لیے یہاں کلک کریں!
+                </button>
+            </div>
+
+            <div class="projects-pointer" style="margin-top: 15px; margin-bottom: 10px;">
                 <p style="font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: bold; color: #fff; letter-spacing: 1px; text-transform: uppercase;">My Projects Review</p>
                 <div class="animated-arrow" style="font-size: 24px; margin-top: 5px; animation: bounce 1s infinite;">👇</div>
             </div>
@@ -310,7 +347,7 @@
                 پھر سال 2015 میں طاہر نذیر نے خود گانے لکھنے کا آغاز کیا۔ وہ وقت بہت مشکل تھا، غریبی کا دور تھا اور کالے خاں دی جوک کے اس نوجوان کے پاس اسٹوڈیو جانے کے پیسے نہیں ہوتے تھے۔ طاہر نذیر کبھی کسی دوست کو ساتھ لے جاتا، کبھی کسی کو، اور کہتا کہ آدھے پیسے تم ڈالو اور آدھے میں ڈالوں گا تاکہ گانا ریکارڈ ہو سکے۔ اس اسٹرگل میں کئی بار لوگوں نے طاہر نذیر کو داغ بھی لگایا، دھوکے دیے، لیکن طاہر نذیر رکنے والا نہیں تھا۔
                 ایک بڑا موڑ سن 2021 میں آیا۔ طاہر نذیر کے پاس اپنا موبائل تک نہیں تھا، تو روڈ پہ ایک پکی کمپیوٹر والی دکان تھی جہاں لوگوں کو میموری کارڈ بھر کر دیے جاتے تھے۔ سن 2021 میں، میں وہاں خان بہادر خان بلوچ سے نیٹ والا موبائل لیا کرتا تھا، انہیں پیسے دیتا تھا اور وہ بدلے میں مجھے نیٹ استعمال کرنے کے لیے ایک یا ڈیڑھ گھنٹہ موبائل دیتے تھے۔ اسی محدود وقت میں طاہر نذیر نے internet سے میوزک پروڈکشن کی باریکیاں سیکھیں۔
                 بالآخر، سال 2023 میں طاہر نذیر نے اپنا خود کا فون لیا اور اس میں میوزک ایپ ڈال کر پروفیشنل کام شروع کیا۔ آج طاہر نذیر دن میں مزدوری کرتا ہے اور رات کو اپنے خوابوں کو سچ کرنے کے لیے پروفیشنل گانے، شاندار میوزک، قصیدے اور نعتیں اپلوڈ کرتا ہے۔ طاہر نذیر ابھی رکا نہیں ہے، کامیابی کی طرف قدم بڑھا رہا ہے اور آہستہ آہستہ اپنا نام بنا رہا ہے۔ 
-                یہ کہانی ہے کالے خاں دی جوک کے طاہر نذیر کی، جس کا سفر اب وائرل ہونے کے لیے تیار ہے! میری اس مزدوری، محنت اور مشقت کے ساتھ ساتھ میرے میوزک کو سنیں اور اس فیلنگ کو محسوس کریں۔ آؤ میرے چینلز پر اور دیکھو یو یو ہنی سنگھ اسٹائل کا دھماکے دار ہپ ہاپ میوزک، سنگنگ اور وہ خاص اسلامک پروجیکٹس جہاں ہر طرح کا کلام، نعتیں اور منفرد ہٹ قصیدے شاندار میوزک اور نئی چیزوں کے ساتھ تیار کیے گئے ہیں۔ جو لوگ ایک الگ انداز میں قصیدے اور پاک کلام سننا چاہتے ہیں، وہ یہاں آئیں اور میری محنت دیکھیں۔ میری اس اسٹرگل کا حصہ بننے کے لیے میرے تینوں چینلز کو لازمی سبسائب کریں۔
+                یہ کہانی ہے کالے خاں دی جوک کے طاہر نذیر کی، جس کا سفر اب وائرل ہونے کے لیے تیار ہے! میری اس مزدوری, محنت اور مشقت کے ساتھ ساتھ میرے میوزک کو سنیں اور اس فیلنگ کو محسوس کریں۔ آؤ میرے چینلز پر اور دیکھو یو یو ہنی سنگھ اسٹائل کا دھماکے دار ہپ ہاپ میوزک، سنگنگ اور وہ خاص اسلامک پروجیکٹس جہاں ہر طرح کا کلام، نعتیں اور منفرد ہٹ قصیدے شاندار میوزک اور نئی چیزوں کے ساتھ تیار کیے گئے ہیں۔ جو لوگ ایک الگ انداز میں قصیدے اور پاک کلام سننا چاہتے ہیں، وہ یہاں آئیں اور میری محنت دیکھیں۔ میری اس اسٹرگل کا حصہ بننے کے لیے میرے تینوں چینلز کو لازمی سبسائب کریں۔
             </p>
         </div>
 
@@ -379,9 +416,16 @@
     <!-- 🔮 ہائی ٹیک آٹو وائس پلے انجن سسٹم -->
     <script>
         var speechTriggered = false;
+        var currentSpeech = null;
 
         function triggerVoice() {
-            if(speechTriggered) return;
+            // اگر پہلے سے چل رہی ہو تو بند کر کے دوبارہ شروع کرے گا
+            if(speechTriggered) {
+                window.speechSynthesis.cancel();
+                speechTriggered = false;
+                document.getElementById('music-bars').style.display = 'none';
+                return;
+            }
 
             var storyText = document.getElementById('story-paragraph').innerText;
             var bars = document.getElementById('music-bars');
@@ -389,38 +433,30 @@
             
             window.speechSynthesis.cancel();
             
-            var speech = new SpeechSynthesisUtterance(storyText);
-            speech.lang = 'ur-PK';      
-            speech.pitch = 1.05;        
-            speech.rate = 0.88; 
+            currentSpeech = new SpeechSynthesisUtterance(storyText);
+            currentSpeech.lang = 'ur-PK';      
+            currentSpeech.pitch = 1.05;        
+            currentSpeech.rate = 0.88; 
 
-            speech.onstart = function() {
+            currentSpeech.onstart = function() {
                 speechTriggered = true;
                 if(bars) { bars.style.display = 'flex'; }
                 if(notice) { notice.style.display = 'none'; }
             };
 
-            speech.onend = function() {
+            currentSpeech.onend = function() {
                 if(bars) { bars.style.display = 'none'; }
                 speechTriggered = false; 
             };
 
-            speech.onerror = function(e) {
+            currentSpeech.onerror = function(e) {
                 console.log("Speech Engine Error:", e);
                 if(bars) { bars.style.display = 'none'; }
                 speechTriggered = false;
             };
 
-            window.speechSynthesis.speak(speech);
+            window.speechSynthesis.speak(currentSpeech);
         }
-
-        document.addEventListener('click', function() {
-            triggerVoice();
-        });
-
-        document.addEventListener('touchstart', function() {
-            triggerVoice();
-        });
     </script>
 </body>
 </html>
