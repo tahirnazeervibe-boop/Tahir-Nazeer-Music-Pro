@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tahir Nazeer Music Pro - Official Web App</title>
+    
+    <!-- 🔮 مین آئیکن اور ہوم اسکرین فوٹو پروٹیکشن سیٹنگ (یہاں فٹ کر دی ہے) -->
+    <link rel="icon" type="image/jpeg" href="main-profile.jpg">
+    <link rel="apple-touch-icon" href="main-profile.jpg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Tahir Nazeer">
+
     <!-- آئیکنز کے لیے لائیو لنک -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- خوبصورت اردو اور انگریزی فونٹس -->
@@ -22,16 +31,10 @@
             50% { height: 25px; }
         }
 
-        /* بٹن کی چمکنے والی اینیمیشن */
-        @keyframes pulse-border {
-            0% { box-shadow: 0 0 10px rgba(0, 255, 204, 0.4); }
-            50% { box-shadow: 0 0 25px rgba(0, 255, 204, 0.8); }
-            100% { box-shadow: 0 0 10px rgba(0, 255, 204, 0.4); }
-        }
-
         /* باڈی اور بیک گراؤنڈ: رنگین گلو اور کلاسک واٹر مارک ڈیزائن مکس */
         body {
             background-color: #06060c;
+            /* خوبصورت ریڈون پنک اور نیون گلو کا مکسچر جو خالی جگہ کو بھر دے گا */
             background-image: 
                 radial-gradient(circle at 15% 20%, rgba(255, 0, 85, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 85% 80%, rgba(0, 255, 204, 0.15) 0%, transparent 50%),
@@ -77,10 +80,10 @@
             line-height: 2.2;
         }
 
-        /* ایپ کا مین کنٹینر */
+        /* ایپ کا مین کنٹینر (ڈبے چوڑے کر دیے گئے ہیں) */
         .app-container {
             width: 100%;
-            max-width: 480px; 
+            max-width: 480px; /* چوڑائی بڑھا دی گئی ہے تاکہ لک شاندار ہو */
             background: rgba(18, 18, 18, 0.95);
             backdrop-filter: blur(10px);
             min-height: 100vh;
@@ -114,30 +117,6 @@
             object-fit: cover;
             border: 3px solid #ff0055;
             box-shadow: 0 0 25px rgba(255, 0, 85, 0.6);
-        }
-
-        /* لائیو ایکشن گائیڈ بٹن اسٹائل */
-        .click-trigger-btn {
-            background: rgba(0, 255, 204, 0.1);
-            color: #00ffcc;
-            border: 1px solid #00ffcc;
-            padding: 8px 15px;
-            border-radius: 25px;
-            font-size: 13px;
-            font-weight: bold;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin: 12px auto 5px auto;
-            font-family: 'Noto Nastaliq Urdu', sans-serif;
-            animation: pulse-border 2s infinite ease-in-out;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .click-trigger-btn:hover {
-            background: #00ffcc;
-            color: #000;
         }
 
         /* میوزک بار لہریں */
@@ -200,8 +179,9 @@
             box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
         }
 
+        /* تھمب نیل کا ڈبہ چوڑا کر دیا ہے تاکہ امیج کٹے نہ */
         .card-image-box {
-            width: 150px; 
+            width: 150px; /* چوڑائی بڑھا دی گئی ہے */
             min-width: 150px;
             height: 115px;
         }
@@ -288,9 +268,9 @@
 </head>
 <body>
 
-    <!-- اوپر والا چمکتا ہوا کلاسک نوٹس -->
+    <!-- اوپر والا چمکتا ہوا کلاسک نوٹس جو آواز پلے ہوتے ہی لوڈنگ اسٹیٹس دکھائے گا -->
     <div id="voice-notice" style="background: linear-gradient(90deg, #ff0055, #00ffcc); color: #000; text-align: center; padding: 12px; font-weight: bold; font-size: 14px; position: sticky; top: 0; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.5); font-family: 'Poppins', sans-serif;">
-       🎵 آواز اور کہانی سننے کے لیے نیچے دیے گئے بٹن پر کلک کریں!
+       🎵 آواز اور میوزک سننے کے لیے اسکرین پر کہیں بھی ایک بار ٹچ (Click) کریں!
     </div>
 
     <div class="app-container">
@@ -308,15 +288,10 @@
                     <span class="bar"></span>
                 </div>
             </div>
-
-            <!-- نیون ایکشن گائیڈ بٹن فینز کو بتانے کے لیے -->
-            <div class="click-trigger-btn" onclick="triggerVoice(); event.stopPropagation();">
-                <i class="fas fa-play-circle"></i> پہلے یہاں کلک کریں!
-            </div>
             
             <h1 class="artist-name" style="background: linear-gradient(45deg, #ff0055, #f1c40f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 28px; margin-top: 10px;">Tahir Nazeer</h1>
             
-            <!-- برانڈ نیم -->
+            <!-- برانڈ نیم Adx HTML شامل ہے -->
             <div class="brand-name" style="color: #00ffcc; font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; margin-top: -2px; letter-spacing: 2px; text-transform: uppercase;">
                 Adx HTML
             </div>
@@ -330,14 +305,14 @@
             </div>
         </header>
 
-        <!-- اباؤٹ اسٹوری سیکشن -->
+        <!-- اباؤٹ اسٹوری سیکشن (کوڈ میں بالکل محفوظ اور قید) -->
         <div style="display: none;">
             <p id="story-paragraph">
                 میوزک کی دنیا میں طاہر نذیر کا یہ جنون سال 2010 میں شروع ہوا، جب میں نے پہلی بار یو یو ہنی سنگھ کو سننا شروع کیا۔ سننے کے ساتھ ہی طاہر نذیر کے اندر کا آرٹسٹ جاگ اٹھا اور میں نے ریپ گانے پکارنے اور رٹنے شروع کر دیے۔ دوستوں اور آس پاس کے لوگوں کو سناتا تو سب طاہر نذیر کو ہنی سنگھ کے نام سے ہی پکارنے لگے، اور یہیں سے اس پاپ ہیرو کا خواب بڑا ہوتا گیا۔
                 پھر سال 2015 میں طاہر نذیر نے خود گانے لکھنے کا آغاز کیا۔ وہ وقت بہت مشکل تھا، غریبی کا دور تھا اور کالے خاں دی جوک کے اس نوجوان کے پاس اسٹوڈیو جانے کے پیسے نہیں ہوتے تھے۔ طاہر نذیر کبھی کسی دوست کو ساتھ لے جاتا، کبھی کسی کو، اور کہتا کہ آدھے پیسے تم ڈالو اور آدھے میں ڈالوں گا تاکہ گانا ریکارڈ ہو سکے۔ اس اسٹرگل میں کئی بار لوگوں نے طاہر نذیر کو داغ بھی لگایا، دھوکے دیے، لیکن طاہر نذیر رکنے والا نہیں تھا۔
                 ایک بڑا موڑ سن 2021 میں آیا۔ طاہر نذیر کے پاس اپنا موبائل تک نہیں تھا، تو روڈ پہ ایک پکی کمپیوٹر والی دکان تھی جہاں لوگوں کو میموری کارڈ بھر کر دیے جاتے تھے۔ سن 2021 میں، میں وہاں خان بہادر خان بلوچ سے نیٹ والا موبائل لیا کرتا تھا، انہیں پیسے دیتا تھا اور وہ بدلے میں مجھے نیٹ استعمال کرنے کے لیے ایک یا ڈیڑھ گھنٹہ موبائل دیتے تھے۔ اسی محدود وقت میں طاہر نذیر نے internet سے میوزک پروڈکشن کی باریکیاں سیکھیں۔
-                بالآخر، سال 2023 میں طاہر نذیر نے اپنا خود کا فون لیا اور اس میں میوزک ایپ ڈال کر پروفیشنل کام شروع کیا۔ آج طاہر نذیر دن میں مزدوری کرتا ہے اور رات کو اپنے خوابوں کو سچ کرنے کے لیے پروفیشنل گانے, شاندار میوزک، قصیدے اور نعتیں اپلوڈ کرتا ہے۔ طاہر نذیر ابھی رکا نہیں ہے، کامیابی کی طرف قدم بڑھا رہا ہے اور آہستہ آہستہ اپنا نام بنا رہا ہے۔ 
-                یہ کہانی ہے کالے خاں دی جوک کے طاہر نذیر کی، جس کا سفر اب وائرل ہونے کے لیے تیار ہے! میری اس مزدوری، محنت اور مشقت کے ساتھ ساتھ میرے میوزک کو سنیں اور اس فیلنگ کو محسوس کریں۔ آؤ میرے چینلز پر اور دیکھو یو یو ہنی سنگھ اسٹائل کا دھماکے دار ہپ ہاپ میوزک, سنگنگ اور وہ خاص اسلامک پروجیکٹس جہاں ہر طرح کا کلام، نعتیں اور منفرد ہٹ قصیدے شاندار میوزک اور نئی چیزوں کے ساتھ تیار کیے گئے ہیں۔ جو لوگ ایک الگ انداز میں قصیدے اور پاک کلام سننا چاہتے ہیں، وہ یہاں آئیں اور میری محنت دیکھیں۔ میری اس اسٹرگل کا حصہ بننے کے لیے میرے تینوں چینلز کو لازمی سبسکرائب کریں۔
+                بالآخر، سال 2023 میں طاہر نذیر نے اپنا خود کا فون لیا اور اس میں میوزک ایپ ڈال کر پروفیشنل کام شروع کیا۔ آج طاہر نذیر دن میں مزدوری کرتا ہے اور رات کو اپنے خوابوں کو سچ کرنے کے لیے پروفیشنل گانے، شاندار میوزک، قصیدے اور نعتیں اپلوڈ کرتا ہے۔ طاہر نذیر ابھی رکا نہیں ہے، کامیابی کی طرف قدم بڑھا رہا ہے اور آہستہ آہستہ اپنا نام بنا رہا ہے۔ 
+                یہ کہانی ہے کالے خاں دی جوک کے طاہر نذیر کی، جس کا سفر اب وائرل ہونے کے لیے تیار ہے! میری اس مزدوری، محنت اور مشقت کے ساتھ ساتھ میرے میوزک کو سنیں اور اس فیلنگ کو محسوس کریں۔ آؤ میرے چینلز پر اور دیکھو یو یو ہنی سنگھ اسٹائل کا دھماکے دار ہپ ہاپ میوزک، سنگنگ اور وہ خاص اسلامک پروجیکٹس جہاں ہر طرح کا کلام، نعتیں اور منفرد ہٹ قصیدے شاندار میوزک اور نئی چیزوں کے ساتھ تیار کیے گئے ہیں۔ جو لوگ ایک الگ انداز میں قصیدے اور پاک کلام سننا چاہتے ہیں، وہ یہاں آئیں اور میری محنت دیکھیں۔ میری اس اسٹرگل کا حصہ بننے کے لیے میرے تینوں چینلز کو لازمی سبسکرائب کریں۔
             </p>
         </div>
 
@@ -376,7 +351,7 @@
                 <div class="card-image-box">
                     <img src="ya-ali-kasida-thumb.jpg" alt="Ya Ali Moula Ali Kasida" class="card-img">
                 </div>
-                <div class="card-content">
+                <div class3="card-content">
                     <h3>Aks-e-Kalaam Official</h3>
                     <p>یا علی کلام، نعتیں اور منفرد ہٹ قصیدے</p>
                     <div class="listen-text-hint"><i class="fas fa-headphones-alt"></i> کلک کریں اور سنیں</div>
@@ -397,7 +372,7 @@
             </a>
             <div class="rating-box" style="margin-top: 15px; font-size: 14px; color: #f1c40f; text-align: center;">
                 <span>ورکرز سٹار ریٹنگ: </span>
-                <span class="stars" style="font-size: 16px;">⭐⭐⭐⭐微</span>
+                <span class="stars" style="font-size: 16px;">⭐⭐⭐⭐⭐</span>
             </div>
         </section>
 
@@ -407,10 +382,9 @@
         </footer>
     </div>
 
-    <!-- 🔮 اپگریڈڈ ہائی ٹیک آٹو مردانہ وائس انجن (Double Layer System) -->
+    <!-- 🔮 ہائی ٹیک آٹو وائس پلے انجن سسٹم -->
     <script>
         var speechTriggered = false;
-        var currentSpeech = null;
 
         function triggerVoice() {
             if(speechTriggered) return;
@@ -419,68 +393,33 @@
             var bars = document.getElementById('music-bars');
             var notice = document.getElementById('voice-notice');
             
-            // پرانی وائسز کو فوراً کینسل کریں
             window.speechSynthesis.cancel();
             
-            currentSpeech = new SpeechSynthesisUtterance(storyText);
-            
-            // تمام دستیاب آوازوں کی لسٹ حاصل کریں
-            var voices = window.speechSynthesis.getVoices();
-            var selectedVoice = null;
+            var speech = new SpeechSynthesisUtterance(storyText);
+            speech.lang = 'ur-PK';      
+            speech.pitch = 1.05;        
+            speech.rate = 0.88; 
 
-            // لیئر 1: سمارٹ فلٹر کے ذریعے صرف اردو (ur) یا ہندی (hi) کی مردانہ (Male) آواز ڈھونڈنا
-            for (var i = 0; i < voices.length; i++) {
-                var v = voices[i];
-                var nameLower = v.name.toLowerCase();
-                var langLower = v.lang.toLowerCase();
-                
-                if (langLower.startsWith('ur') || langLower.startsWith('hi')) {
-                    // اگر آواز کا نام واضع طور پر میل (Male) یا نیچرل گوگل سروس پر ہو
-                    if (nameLower.includes('male') || nameLower.includes('man') || nameLower.includes('google') || nameLower.includes('natural')) {
-                        selectedVoice = v;
-                        break;
-                    }
-                }
-            }
-
-            // لیئر 2: اگر اوپر والا فلٹر موبائل پر نہ چلے، تو کوئی بھی ڈیفالٹ اردو/ہندی انجن کو ترجیح دیں
-            if (!selectedVoice) {
-                selectedVoice = voices.find(function(v) {
-                    return v.lang.toLowerCase().startsWith('ur') || v.lang.toLowerCase().startsWith('hi');
-                });
-            }
-
-            // اگر آواز مل جائے تو اسائن کریں
-            if(selectedVoice) {
-                currentSpeech.voice = selectedVoice;
-            }
-            
-            // موبائل کو زبردستی اردو پچ پر چلانے کی کمانڈز
-            currentSpeech.lang = 'ur-PK';      
-            currentSpeech.pitch = 0.82; // پچ کو مزید کم کر دیا ہے تاکہ اگر سسٹم ڈیفالٹ آواز بھی اٹھائے تو وہ بھاری اور مردانہ ساؤنڈ کرے
-            currentSpeech.rate = 0.88;  // پڑھنے کی رفتار بالکل نارمل اور پروفیشنل
-
-            currentSpeech.onstart = function() {
+            speech.onstart = function() {
                 speechTriggered = true;
                 if(bars) { bars.style.display = 'flex'; }
                 if(notice) { notice.style.display = 'none'; }
             };
 
-            currentSpeech.onend = function() {
+            speech.onend = function() {
                 if(bars) { bars.style.display = 'none'; }
                 speechTriggered = false; 
             };
 
-            currentSpeech.onerror = function(e) {
+            speech.onerror = function(e) {
                 console.log("Speech Engine Error:", e);
                 if(bars) { bars.style.display = 'none'; }
                 speechTriggered = false;
             };
 
-            window.speechSynthesis.speak(currentSpeech);
+            window.speechSynthesis.speak(speech);
         }
 
-        // پورے پیج پر کہیں بھی ٹچ یا کلک کرنے سے ایکشن ٹریگر کرنے کا بیک اپ
         document.addEventListener('click', function() {
             triggerVoice();
         });
@@ -488,14 +427,6 @@
         document.addEventListener('touchstart', function() {
             triggerVoice();
         });
-
-        // براؤزر کے بیک گراؤنڈ میں وائس انجن لوڈ ہونے کا آٹو ویٹنگ فلٹر
-        if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
-            speechSynthesis.onvoiceschanged = function() {
-                // آوازیں بیک گراؤنڈ میں لوڈ ہوتے ہی انجن کو ریڈی رکھیں
-                var tempVoices = window.speechSynthesis.getVoices();
-            };
-        }
     </script>
 </body>
 </html>
