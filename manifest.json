@@ -1,0 +1,15 @@
+{
+  "short_name": "Tahir Nazeer",
+  "name": "Tahir Nazeer Music Pro",
+  "icons": [
+    {
+      "src": "main-profile.jpg",
+      "type": "image/jpeg",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "index.html",
+  "background_color": "#06060c",
+  "display": "standalone",
+  "theme_color": "#06060c"
+}
