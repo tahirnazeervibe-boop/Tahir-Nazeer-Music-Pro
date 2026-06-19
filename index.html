@@ -17,33 +17,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* تیر کے نشان کی خوبصورت اینیمیشن */
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(8px); }
         }
 
-        /* آواز کے وقت ہلنے والی لہروں کی اینیمیشن */
         @keyframes wave {
             0%, 100% { height: 5px; }
             50% { height: 25px; }
         }
 
-        /* 🌟 چمکتے اور لہراتے ہوئے پلے بٹن کی دھماکے دار اینیمیشن */
-        @keyframes pulseGlow {
-            0% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 0, 85, 0.6); }
-            50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(0, 255, 204, 0.9), 0 0 10px rgba(255, 0, 85, 0.8); }
-            100% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 0, 85, 0.6); }
+        /* 🌟 جادوئی اور چمکتے ہوئے بٹن کی دھماکے دار اینیمیشن */
+        @keyframes magicGlow {
+            0% { transform: scale(1); box-shadow: 0 0 15px rgba(241, 196, 15, 0.6); }
+            50% { transform: scale(1.03); box-shadow: 0 0 30px rgba(255, 0, 85, 0.9), 0 0 15px rgba(0, 255, 204, 0.8); }
+            100% { transform: scale(1); box-shadow: 0 0 15px rgba(241, 196, 15, 0.6); }
         }
 
-        /* باڈی اور بیک گراؤنڈ */
         body {
             background-color: #06060c;
             background-image: 
                 radial-gradient(circle at 15% 20%, rgba(255, 0, 85, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 85% 80%, rgba(0, 255, 204, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(155, 89, 182, 0.1) 0%, transparent 60%),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M10 10h2v2h-2zm20 20h2v2h-2zm-20 40h2v2h-2zm60 0h2v2h-2zM40 10h2v2h-2zm0 60h2v2h-2zM60 30h2v2h-2zM15 45q2-4 5-4t5 4v15q0 3-2 5t-5 2-5-2-2-5v-15zm40-20q2-4 5-4t5 4v15q0 3-2 5t-5 2-5-2-2-5v-15z'/%3E%3C/g%3E%3C/svg%3E");
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M10 10h2v2h-2zm20 20h2v2h-2zm-20 40h2v2h-2zm60 0h2v2h-2zM40 10h2v2h-2zm0 60h2v2h-2zM60 30h2v2h-2z'/%3E%3C/g%3E%3C/svg%3E");
             color: #ffffff;
             font-family: 'Poppins', 'Noto Nastaliq Urdu', sans-serif;
             margin: 0;
@@ -54,36 +50,6 @@
             min-height: 100vh;
         }
 
-        /* سائیڈوں پر واٹر مارک ڈیزائن */
-        body::before {
-            content: "\f001  \f025  \f83e";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: fixed;
-            left: 3%;
-            top: 15%;
-            font-size: 70px;
-            color: rgba(255, 0, 85, 0.06);
-            z-index: 1;
-            pointer-events: none;
-            line-height: 2.2;
-        }
-
-        body::after {
-            content: "\f025  \f001  \f144";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: fixed;
-            right: 3%;
-            bottom: 15%;
-            font-size: 70px;
-            color: rgba(0, 255, 204, 0.06);
-            z-index: 1;
-            pointer-events: none;
-            line-height: 2.2;
-        }
-
-        /* ایپ کا مین کنٹینر */
         .app-container {
             width: 100%;
             max-width: 480px;
@@ -98,31 +64,28 @@
             border-right: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* پروفائل کا حصہ */
         .profile-header {
             text-align: center;
-            padding: 40px 20px 20px 20px;
+            padding: 30px 20px 15px 20px;
             background: linear-gradient(to bottom, #1f1f2e, #121212);
-            border-bottom: 1px solid #222;
         }
 
         .profile-img-container {
             position: relative;
-            width: 130px;
-            height: 130px;
+            width: 120px;
+            height: 120px;
             margin: 0 auto 15px auto;
         }
 
         .profile-img {
-            width: 130px;
-            height: 130px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid #ff0055;
             box-shadow: 0 0 25px rgba(255, 0, 85, 0.6);
         }
 
-        /* میوزک بار لہریں */
         .music-wave-box {
             position: absolute;
             bottom: -5px;
@@ -151,37 +114,67 @@
         .bar:nth-child(3) { animation-delay: 0.3s; background-color: #f1c40f; }
         .bar:nth-child(4) { animation-delay: 0.45s; background-color: #00ffcc; }
 
-        /* 🌟 لہراتا اور چمکتا ہوا آڈیو پلے بٹن اسٹائل */
-        .neon-voice-btn {
-            background: linear-gradient(45deg, #ff0055, #00ffcc);
-            color: #000000;
+        /* 👑 طاہر بھائی کا نیا خفیہ اور سسپنس والا جادوئی بٹن */
+        .earning-magic-btn {
+            background: linear-gradient(45deg, #f1c40f, #ff0055, #00ffcc);
+            color: #ffffff;
             font-family: 'Poppins', 'Noto Nastaliq Urdu', sans-serif;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: bold;
-            padding: 12px 25px;
-            margin: 20px auto 10px auto;
+            padding: 15px 15px;
+            margin: 15px auto 5px auto;
             border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 92%;
+            animation: magicGlow 2s infinite ease-in-out;
+            transition: 0.3s;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+        }
+
+        /* 👤 کہانی والا آواز بٹن */
+        .neon-voice-btn {
+            background: #222;
+            color: #00ffcc;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 10px 20px;
+            margin: 15px auto 5px auto;
+            border: 1px solid #00ffcc;
             border-radius: 30px;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            animation: pulseGlow 1.5s infinite ease-in-out;
+            gap: 8px;
             transition: 0.3s;
-            box-shadow: 0 0 15px rgba(255, 0, 85, 0.5);
         }
 
-        .neon-voice-btn:active {
-            transform: scale(0.95);
+        /* 🔮 بیک گراؤنڈ کا خفیہ حصہ (Secret Invisible Zone) جہاں کلک کرنے سے ایڈ چلے گا */
+        .secret-background-zone {
+            width: 100%;
+            height: 70px;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: 1px dashed rgba(255,255,255,0.03);
+            border-bottom: 1px dashed rgba(255,255,255,0.03);
+            margin: 10px 0;
         }
 
-        /* یوٹیوب چینل کے چوڑے کارڈز */
+        /* یوٹیوب کارڈز */
         .channels-section {
-            padding: 20px;
+            padding: 10px 20px;
         }
 
         .section-title {
-            font-size: 18px;
+            font-size: 17px;
             color: #fff;
             margin-bottom: 20px;
             border-right: 4px solid #ff0055;
@@ -203,13 +196,12 @@
         .channel-card:hover {
             transform: scale(1.02);
             border-color: #00ffcc;
-            box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
         }
 
         .card-image-box {
-            width: 150px;
-            min-width: 150px;
-            height: 115px;
+            width: 140px;
+            min-width: 140px;
+            height: 110px;
         }
 
         .card-img {
@@ -226,84 +218,55 @@
             flex-grow: 1;
         }
 
-        .card-content h3 {
-            margin: 0;
-            font-size: 15px;
-            color: #fff;
-        }
-
-        .card-content p {
-            margin: 3px 0;
-            font-size: 12px;
-            color: #bbb;
-        }
-
-        .listen-text-hint {
-            font-size: 11px;
-            color: #00ffcc;
-            margin-bottom: 4px;
-            font-weight: 500;
-        }
+        .card-content h3 { margin: 0; font-size: 14px; color: #fff; }
+        .card-content p { margin: 3px 0; font-size: 11px; color: #bbb; }
+        .listen-text-hint { font-size: 11px; color: #00ffcc; }
 
         .subscribe-btn-neon {
             background: #ff0055;
             color: #fff;
             text-align: center;
-            padding: 5px 12px;
+            padding: 4px 10px;
             border-radius: 20px;
             font-size: 11px;
             font-weight: bold;
             align-self: flex-start;
-            box-shadow: 0 0 10px rgba(255, 0, 85, 0.4);
         }
 
-        /* واٹس ایپ سیکشن */
+        /* واٹس ایپ */
         .whatsapp-connect-section {
-            padding: 0 20px;
-            margin-top: 10px;
+            padding: 10px 20px;
         }
 
         .whatsapp-card {
             display: flex;
             align-items: center;
             background: linear-gradient(135deg, #11998e, #38ef7d);
-            padding: 15px;
+            padding: 12px;
             border-radius: 15px;
             text-decoration: none;
             color: #fff;
-            box-shadow: 0 5px 15px rgba(56, 239, 125, 0.3);
         }
 
-        .wa-icon {
-            font-size: 30px;
-            margin-left: 15px;
-        }
+        .wa-icon { font-size: 26px; margin-left: 12px; }
+        .wa-text h4 { margin: 0; font-size: 14px; }
+        .wa-text p { margin: 2px 0 0 0; font-size: 11px; color: #e0eee0; }
 
-        .wa-text h4 { margin: 0; font-size: 15px; }
-        .wa-text p { margin: 3px 0 0 0; font-size: 12px; color: #e0eee0; }
-
-        /* فوٹر */
         .app-footer {
             text-align: center;
             padding: 20px;
             font-size: 11px;
             color: #666;
-            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-
-    <div id="voice-notice" style="background: linear-gradient(90deg, #ff0055, #00ffcc); color: #000; text-align: center; padding: 12px; font-weight: bold; font-size: 14px; position: sticky; top: 0; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.5); font-family: 'Poppins', sans-serif;">
-       🎵 آواز اور میوزک سننے کے لیے نیچے دیے گئے لہراتے بٹن پر کلک کریں!
-    </div>
 
     <div class="app-container">
         
         <header class="profile-header">
             <div class="profile-img-container">
                 <img src="main-profile.jpg" alt="Tahir Nazeer" class="profile-img">
-                
                 <div class="music-wave-box" id="music-bars">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -312,88 +275,72 @@
                 </div>
             </div>
             
-            <h1 class="artist-name" style="background: linear-gradient(45deg, #ff0055, #f1c40f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 28px; margin-top: 10px;">Tahir Nazeer</h1>
-            
-            <div class="brand-name" style="color: #00ffcc; font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; margin-top: -2px; letter-spacing: 2px; text-transform: uppercase;">
-                Adx HTML
-            </div>
+            <h1 style="background: linear-gradient(45deg, #ff0055, #f1c40f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 26px; margin: 5px 0;">Tahir Nazeer</h1>
+            <div style="color: #00ffcc; font-size: 14px; font-weight: 700; letter-spacing: 2px;">ADX HTML PRO</div>
+            <p style="color: #bbb; font-size: 13px; margin: 5px 0 10px 0;"><i class="fas fa-map-marker-alt" style="color: #ff0055;"></i> کالے خاں دی جوک</p>
 
-            <p class="artist-tagline" style="color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 14px; letter-spacing: 1px; font-weight: 500; margin-top: 8px;">Singer & Music Composer</p>
-            <p class="artist-location" style="font-size: 13px; color: #bbb; margin-top: 5px;"><i class="fas fa-map-marker-alt" style="color: #ff0055;"></i> کالے خاں دی جوک</p>
+            <button class="earning-magic-btn" onclick="openAdLink()">
+                <i class="fas fa-wand-magic-sparkles" style="color: #f1c40f;"></i> ✨ طاہر نذیر کا جادوئی میوزک گیٹ وے لاک ہے، کھولنے کے لیے یہاں ٹچ کریں!
+            </button>
 
             <div>
-                <button class="neon-voice-btn" onclick="triggerVoice(event)">
-                    <i class="fas fa-volume-up"></i> آواز سننے کے لیے یہاں کلک کریں!
+                <button class="neon-voice-btn" onclick="triggerVoice()">
+                    <i class="fas fa-volume-up"></i> کہانی سننے کے لیے کلک کریں
                 </button>
             </div>
 
-            <div class="projects-pointer" style="margin-top: 15px; margin-bottom: 10px;">
-                <p style="font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: bold; color: #fff; letter-spacing: 1px; text-transform: uppercase;">My Projects Review</p>
-                <div class="animated-arrow" style="font-size: 24px; margin-top: 5px; animation: bounce 1s infinite;">👇</div>
+            <div style="margin-top: 10px;">
+                <div style="font-size: 18px; animation: bounce 1s infinite;">👇</div>
             </div>
         </header>
 
-        <div style="display: none;">
-            <p id="story-paragraph">
-                میوزک کی دنیا میں طاہر نذیر کا یہ جنون سال 2010 میں شروع ہوا، جب میں نے پہلی بار یو یو ہنی سنگھ کو سننا شروع کیا۔ سننے کے ساتھ ہی طاہر نذیر کے اندر کا آرٹسٹ جاگ اٹھا اور میں نے ریپ گانے پکارنے اور رٹنے شروع کر دیے۔ دوستوں اور آس پاس کے لوگوں کو سناتا تو سب طاہر نذیر کو ہنی سنگھ کے نام سے ہی پکارنے لگے، اور یہیں سے اس پاپ ہیرو کا خواب بڑا ہوتا گا۔
-                پھر سال 2015 میں طاہر نذیر نے خود گانے لکھنے کا آغاز کیا۔ وہ وقت بہت مشکل تھا، غریبی کا دور تھا اور کالے خاں دی جوک کے اس نوجوان کے پاس اسٹوڈیو جانے کے پیسے نہیں ہوتے تھے۔ طاہر نذیر کبھی کسی دوست کو ساتھ لے جاتا، کبھی کسی کو، اور کہتا کہ آدھے پیسے تم ڈالو اور آدھے میں ڈالوں گا تاکہ گانا ریکارڈ ہو سکے۔ اس اسٹرگل میں کئی بار لوگوں نے طاہر نذیر کو داغ بھی لگایا، دھوکے دیے، لیکن طاہر نذیر رکنے والا نہیں تھا۔
-                ایک بڑا موڑ سن 2021 میں آیا۔ طاہر نذیر کے پاس اپنا موبائل تک نہیں تھا، تو روڈ پہ ایک پکی کمپیوٹر والی دکان تھی جہاں لوگوں کو میموری کارڈ بھر کر دیے جاتے تھے۔ سن 2021 میں، میں وہاں خان بہادر خان بلوچ سے نیٹ والا موبائل لیا کرتا تھا، انہیں پیسے دیتا تھا اور وہ بدلے میں مجھے نیٹ استعمال کرنے کے لیے ایک یا ڈیڑھ گھنٹہ موبائل دیتے تھے۔ اسی محدود وقت میں طاہر نذیر نے internet سے میوزک پروڈکشن کی باریکیاں سیکھیں۔
-                بالآخر، سال 2023 میں طاہر نذیر نے اپنا خود کا فون لیا اور اس میں میوزک ایپ ڈال کر پروفیشنل کام شروع کیا۔ آج طاہر نذیر دن میں مزدوری کرتا ہے اور رات کو اپنے خوابوں کو سچ کرنے کے لیے پروفیشنل گانے، شاندار میوزک، قصیدے اور نعتیں اپلوڈ کرتا ہے۔ طاہر نذیر ابھی رکا نہیں ہے، کامیابی کی طرف قدم بڑھا رہا ہے اور آہستہ آہستہ اپنا نام بنا رہا ہے۔ 
-                یہ کہانی ہے کالے خاں دی جوک کے طاہر نذیر کی، جس کا سفر اب وائرل ہونے کے لیے تیار ہے! میری اس مزدوری, محنت اور مشقت کے ساتھ ساتھ میرے میوزک کو سنیں اور اس فیلنگ کو محسوس کریں۔ آؤ میرے چینلز پر اور دیکھو یو یو ہنی سنگھ اسٹائل کا دھماکے دار ہپ ہاپ میوزک، سنگنگ اور وہ خاص اسلامک پروجیکٹس جہاں ہر طرح کا کلام، نعتیں اور منفرد ہٹ قصیدے شاندار میوزک اور نئی چیزوں کے ساتھ تیار کیے گئے ہیں۔ جو لوگ ایک الگ انداز میں قصیدے اور پاک کلام سننا چاہتے ہیں، وہ یہاں آئیں اور میری محنت دیکھیں۔ میری اس اسٹرگل کا حصہ بننے کے لیے میرے تینوں چینلز کو لازمی سبسائب کریں۔
-            </p>
-        </div>
+        <div class="secret-background-zone" onclick="openAdLink()">
+            </div>
 
         <section class="channels-section">
             <h2 class="section-title">میرے آفیشل یوٹیوب چینلز</h2>
             
-            <a href="https://youtube.com/@malikmusichiphop?si=zhs1rr34psa1McE_" target="_blank" class="channel-card" onclick="stopPropagation(event)">
-                <div class="card-image-box">
-                    <img src="naacho-saare-thumb.jpg" alt="Naacho Saare" class="card-img">
-                </div>
+            <a href="https://youtube.com/@malikmusichiphop?si=zhs1rr34psa1McE_" target="_blank" class="channel-card">
+                <div class="card-image-box"><img src="naacho-saare-thumb.jpg" class="card-img"></div>
                 <div class="card-content">
                     <h3>Malik Music Hip Hop</h3>
                     <p>Naacho Saare اور زبردست ہپ ہاپ گانے</p>
-                    <div class="listen-text-hint"><i class="fas fa-headphones-alt"></i> کلک کریں اور سنیں</div>
-                    <div class="subscribe-btn-neon">سبسکرائب کریں</div>
+                    <div class="listen-text-hint">کلک کریں اور سنیں</div>
+                    <div class="subscribe-btn-neon">سبسکرائب</div>
                 </div>
             </a>
 
-            <a href="https://youtube.com/@malikmusicvibe?si=cK0wkaqLThJHLJtK_" target="_blank" class="channel-card" onclick="stopPropagation(event)">
-                <div class="card-image-box">
-                    <img src="vocal-ringtone-thumb.jpg" alt="Smart Vocal Ringtones" class="card-img">
-                </div>
+            <a href="https://youtube.com/@malikmusicvibe?si=cK0wkaqLThJHLJtK_" target="_blank" class="channel-card">
+                <div class="card-image-box"><img src="vocal-ringtone-thumb.jpg" class="card-img"></div>
                 <div class="card-content">
                     <h3>Malik Music Vibe</h3>
                     <p>خالص ڈیجیٹل میوزک اور فون رنگ ٹونز</p>
-                    <div class="listen-text-hint"><i class="fas fa-headphones-alt"></i> کلک کریں اور سنیں</div>
-                    <div class="subscribe-btn-neon">سبسکرائب کریں</div>
+                    <div class="listen-text-hint">کلک کریں اور سنیں</div>
+                    <div class="subscribe-btn-neon">سبسکرائب</div>
                 </div>
             </a>
 
-            <a href="https://youtube.com/@aks-e-kalaamofficial?si=XRJ0dtM6us5oAMJ7_" target="_blank" class="channel-card" onclick="stopPropagation(event)">
-                <div class="card-image-box">
-                    <img src="ya-ali-kasida-thumb.jpg" alt="Ya Ali Moula Ali Kasida" class="card-img">
-                </div>
+            <a href="https://youtube.com/@aks-e-kalaamofficial?si=XRJ0dtM6us5oAMJ7_" target="_blank" class="channel-card">
+                <div class="card-image-box"><img src="ya-ali-kasida-thumb.jpg" class="card-img"></div>
                 <div class="card-content">
                     <h3>Aks-e-Kalaam Official</h3>
                     <p>یا علی کلام، نعتیں اور منفرد ہٹ قصیدے</p>
-                    <div class="listen-text-hint"><i class="fas fa-headphones-alt"></i> کلک کریں اور سنیں</div>
-                    <div class="subscribe-btn-neon">سبسکرائب کریں</div>
+                    <div class="listen-text-hint">کلک کریں اور سنیں</div>
+                    <div class="subscribe-btn-neon">سبسکرائب</div>
                 </div>
             </a>
         </section>
 
         <section class="whatsapp-connect-section">
-            <a href="https://wa.me/923000000000" target="_blank" class="whatsapp-card" onclick="stopPropagation(event)">
+            <a href="https://wa.me/923000000000" target="_blank" class="whatsapp-card">
                 <div class="wa-icon"><i class="fab fa-whatsapp"></i></div>
                 <div class="wa-text">
                     <h4>طاہر نذیر سے واٹس ایپ پر رابطہ کریں</h4>
                     <p>میوزک پروڈکشن اور بزنس ڈیلز کے لیے لائیو چیٹ</p>
                 </div>
             </a>
-            <div class="rating-box" style="margin-top: 15px; font-size: 14px; color: #f1c40f; text-align: center;">
-                <span>ورکرز سٹار ریٹنگ: </span>
-                <span class="stars" style="font-size: 16px;">⭐⭐⭐⭐⭐</span>
+            <div style="margin-top: 15px; font-size: 13px; color: #f1c40f; text-align: center;">
+                ورکرز سٹار ریٹنگ: ⭐⭐⭐⭐⭐
             </div>
         </section>
 
@@ -402,75 +349,42 @@
         </footer>
     </div>
 
-    <script>
-        var speechTriggered = false;
-        var currentSpeech = null;
+    <div style="display: none;">
+        <p id="story-paragraph">
+            میوزک کی دنیا میں طاہر نذیر کا یہ جنون سال 2010 میں شروع ہوا، جب میں نے پہلی بار یو یو ہنی سنگھ کو سننا شروع کیا۔ سننے کے ساتھ ہی طاہر نذیر کے اندر کا آرٹسٹ جاگ اٹھا اور میں نے ریپ گانے پکارنے اور رٹنے شروع کر دیے۔ دوستوں اور آس پاس کے لوگوں کو سناتا تو سب طاہر نذیر کو ہنی سنگھ کے نام سے ہی پکارنے لگے، اور یہیں سے اس پاپ ہیرو کا خواب بڑا ہوتا گا۔ پھر سال 2015 میں طاہر نذیر نے خود گانے لکھنے کا آغاز کیا۔ وہ وقت بہت مشکل تھا، غریبی کا دور تھا اور کالے خاں دی جوک کے اس نوجوان کے پاس اسٹوڈیو جانے کے پیسے نہیں ہوتے تھے۔ طاہر نذیر کبھی کسی دوست کو ساتھ لے جاتا، کبھی کسی کو، اور کہتا کہ آدھے پیسے تم ڈالو اور آدھے میں ڈالوں گا تاکہ گانا ریکارڈ ہو سکے۔ اس اسٹرگل میں کئی بار لوگوں نے طاہر نذیر کو داغ بھی لگایا، دھوکے دیے، لیکن طاہر نذیر رکنے والا نہیں تھا۔ ایک بڑا موڑ سن 2021 میں آیا۔ طاہر نذیر کے پاس اپنا موبائل تک نہیں تھا، تو روڈ پہ ایک پکی کمپیوٹر والی دکان تھی جہاں لوگوں کو میموری کارڈ بھر کر دیے جاتے تھے۔ سن 2021 میں، میں وہاں خان بہادر خان بلوچ سے نیٹ والا موبائل لیا کرتا تھا، انہیں پیسے دیتا تھا اور وہ بدلے میں مجھے نیٹ استعمال کرنے کے لیے ایک یا ڈیڑھ گھنٹہ موبائل دیتے تھے۔ اسی محدود وقت میں طاہر نذیر نے internet سے میوزک پروڈکشن کی باریکیاں سیکھیں۔ بالآخر، سال 2023 میں طاہر نذیر نے اپنا خود کا فون لیا اور اس میں میوزک ایپ ڈال کر پروفیشنل کام شروع کیا۔ آج طاہر نذیر دن میں مزدوری کرتا ہے اور رات کو اپنے خوابوں کو سچ کرنے کے لیے پروفیشنل گانے، شاندار میوزک, قصیدے اور نعتیں اپلوڈ کرتا ہے۔ طاہر نذیر ابھی رکا نہیں ہے، کامیابی کی طرف قدم بڑھا رہا ہے اور آہستہ آہستہ اپنا نام بنا رہا ہے۔ یہ کہانی ہے کالے خاں دی جوک کے طاہر نذیر کی، جس کا سفر اب وائرل ہونے کے لیے تیار ہے! میری اس مزدوری، محنت اور مشقت کے ساتھ ساتھ میرے میوزک کو سنیں اور اس فیلنگ کو محسوس کریں۔ آؤ میرے چینلز پر اور دیکھو یو یو ہنی سنگھ اسٹائل کا دھماکے دار ہپ ہاپ میوزک، سنگنگ اور وہ خاص اسلامک پروجیکٹس جہاں ہر طرح کا کلام، نعتیں اور منفرد ہٹ قصیدے شاندار میوزک اور نئی چیزوں کے ساتھ تیار کیے گئے ہیں۔ جو لوگ ایک الگ انداز میں قصیدے اور پاک کلام سننا چاہتے ہیں، وہ یہاں آئیں اور میری محنت دیکھیں۔ میری اس اسٹرگل کا حصہ بننے کے لیے میرے تینوں چینلز کو لازمی سبسائب کریں۔
+        </p>
+    </div>
 
-        function stopPropagation(e) {
-            // یہ فنکشن بٹنوں پر کلک کرنے سے اشتہار کو زبردستی روکے گا
-            e.stopPropagation();
+    <script>
+        // 🔮 ایڈ اسٹرا کا اشتہار کھولنے کا ہائی ٹیک اسکرپٹ
+        function openAdLink() {
+            var adUrl = "https://pl29782427.effectivecpmnetwork.com/c0/14/6b/c0146b1546f30b4062e9e27f1073cea0.js";
+            var newWindow = window.open(adUrl, '_blank');
+            if (newWindow) {
+                newWindow.focus();
+            } else {
+                window.location.href = adUrl;
+            }
         }
 
-        function triggerVoice(e) {
-            if(e) e.stopPropagation(); // آواز والے بٹن پر اشتہار بلاک کریں
-
+        var speechTriggered = false;
+        function triggerVoice() {
             if(speechTriggered) {
                 window.speechSynthesis.cancel();
                 speechTriggered = false;
                 document.getElementById('music-bars').style.display = 'none';
                 return;
             }
-
             var storyText = document.getElementById('story-paragraph').innerText;
             var bars = document.getElementById('music-bars');
-            var notice = document.getElementById('voice-notice');
-            
             window.speechSynthesis.cancel();
-            
-            currentSpeech = new SpeechSynthesisUtterance(storyText);
-            
+            var currentSpeech = new SpeechSynthesisUtterance(storyText);
             currentSpeech.lang = 'ur-PK';      
-            currentSpeech.pitch = 1.0;        
             currentSpeech.rate = 0.88; 
-
-            if (window.speechSynthesis.getVoices) {
-                var voices = window.speechSynthesis.getVoices();
-                var urduVoice = voices.find(function(v) { 
-                    return v.lang === 'ur-PK' || v.lang.startsWith('ur'); 
-                });
-                if (urduVoice) {
-                    currentSpeech.voice = urduVoice;
-                }
-            }
-
-            currentSpeech.onstart = function() {
-                speechTriggered = true;
-                if(bars) { bars.style.display = 'flex'; }
-                if(notice) { notice.style.display = 'none'; }
-            };
-
-            currentSpeech.onend = function() {
-                if(bars) { bars.style.display = 'none'; }
-                speechTriggered = false; 
-            };
-
-            currentSpeech.onerror = function(e) {
-                console.log("Speech Engine Error:", e);
-                if(bars) { bars.style.display = 'none'; }
-                speechTriggered = false;
-            };
-
+            currentSpeech.onstart = function() { speechTriggered = true; bars.style.display = 'flex'; };
+            currentSpeech.onend = function() { bars.style.display = 'none'; speechTriggered = false; };
             window.speechSynthesis.speak(currentSpeech);
         }
-
-        if (window.speechSynthesis.onvoiceschanged !== undefined) {
-            window.speechSynthesis.onvoiceschanged = function() {
-                // وائس لسٹ اپڈیٹ بیک گراؤنڈ
-            };
-        }
     </script>
-
-    <script src="https://pl29782427.effectivecpmnetwork.com/c0/14/6b/c0146b1546f30b4062e9e27f1073cea0.js"></script>
-
 </body>
 </html>
