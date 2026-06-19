@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tahir Nazeer Music Pro - Official Web App</title>
     
-    <!-- 🔮 اینڈرائیڈ اور ایپل ہوم اسکرین آئیکن پروٹیکشن لنکس -->
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/jpeg" href="main-profile.jpg">
     <link rel="apple-touch-icon" href="main-profile.jpg">
@@ -14,9 +13,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Tahir Nazeer">
 
-    <!-- آئیکنز کے لیے لائیو لنک -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- خوبصورت اردو اور انگریزی فونٹس -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     
     <style>
@@ -221,12 +218,6 @@
             object-fit: cover;
         }
 
-        .card-img-box {
-            width: 150px;
-            min-width: 150px;
-            height: 115px;
-        }
-
         .card-content {
             padding: 12px;
             display: flex;
@@ -303,19 +294,16 @@
 </head>
 <body>
 
-    <!-- 🌟 چمکتا ہوا ٹاپ نوٹس بار -->
     <div id="voice-notice" style="background: linear-gradient(90deg, #ff0055, #00ffcc); color: #000; text-align: center; padding: 12px; font-weight: bold; font-size: 14px; position: sticky; top: 0; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.5); font-family: 'Poppins', sans-serif;">
        🎵 آواز اور میوزک سننے کے لیے نیچے دیے گئے لہراتے بٹن پر کلک کریں!
     </div>
 
     <div class="app-container">
         
-        <!-- ہوم اسکرین کا مین فیس -->
         <header class="profile-header">
             <div class="profile-img-container">
                 <img src="main-profile.jpg" alt="Tahir Nazeer" class="profile-img">
                 
-                <!-- لائیو وائس ویوز اینیمیشن -->
                 <div class="music-wave-box" id="music-bars">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -333,9 +321,8 @@
             <p class="artist-tagline" style="color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 14px; letter-spacing: 1px; font-weight: 500; margin-top: 8px;">Singer & Music Composer</p>
             <p class="artist-location" style="font-size: 13px; color: #bbb; margin-top: 5px;"><i class="fas fa-map-marker-alt" style="color: #ff0055;"></i> کالے خاں دی جوک</p>
 
-            <!-- 🌟 طاہر بھائی کا خاص لہراتا ہوا اور چمکتا ہوا بٹن آواز پلے کرنے کے لیے 🌟 -->
             <div>
-                <button class="neon-voice-btn" onclick="triggerVoice()">
+                <button class="neon-voice-btn" onclick="triggerVoice(event)">
                     <i class="fas fa-volume-up"></i> آواز سننے کے لیے یہاں کلک کریں!
                 </button>
             </div>
@@ -346,22 +333,20 @@
             </div>
         </header>
 
-        <!-- اباؤٹ اسٹوری سیکشن (یہاں اردو متن موجود ہے اور اسپیچ انجن اسے ہی پڑھے گا) -->
         <div style="display: none;">
             <p id="story-paragraph">
                 میوزک کی دنیا میں طاہر نذیر کا یہ جنون سال 2010 میں شروع ہوا، جب میں نے پہلی بار یو یو ہنی سنگھ کو سننا شروع کیا۔ سننے کے ساتھ ہی طاہر نذیر کے اندر کا آرٹسٹ جاگ اٹھا اور میں نے ریپ گانے پکارنے اور رٹنے شروع کر دیے۔ دوستوں اور آس پاس کے لوگوں کو سناتا تو سب طاہر نذیر کو ہنی سنگھ کے نام سے ہی پکارنے لگے، اور یہیں سے اس پاپ ہیرو کا خواب بڑا ہوتا گا۔
                 پھر سال 2015 میں طاہر نذیر نے خود گانے لکھنے کا آغاز کیا۔ وہ وقت بہت مشکل تھا، غریبی کا دور تھا اور کالے خاں دی جوک کے اس نوجوان کے پاس اسٹوڈیو جانے کے پیسے نہیں ہوتے تھے۔ طاہر نذیر کبھی کسی دوست کو ساتھ لے جاتا، کبھی کسی کو، اور کہتا کہ آدھے پیسے تم ڈالو اور آدھے میں ڈالوں گا تاکہ گانا ریکارڈ ہو سکے۔ اس اسٹرگل میں کئی بار لوگوں نے طاہر نذیر کو داغ بھی لگایا، دھوکے دیے، لیکن طاہر نذیر رکنے والا نہیں تھا۔
                 ایک بڑا موڑ سن 2021 میں آیا۔ طاہر نذیر کے پاس اپنا موبائل تک نہیں تھا، تو روڈ پہ ایک پکی کمپیوٹر والی دکان تھی جہاں لوگوں کو میموری کارڈ بھر کر دیے جاتے تھے۔ سن 2021 میں، میں وہاں خان بہادر خان بلوچ سے نیٹ والا موبائل لیا کرتا تھا، انہیں پیسے دیتا تھا اور وہ بدلے میں مجھے نیٹ استعمال کرنے کے لیے ایک یا ڈیڑھ گھنٹہ موبائل دیتے تھے۔ اسی محدود وقت میں طاہر نذیر نے internet سے میوزک پروڈکشن کی باریکیاں سیکھیں۔
-                بالآخر، سال 2023 میں طاہر نذیر نے اپنا خود کا فون لیا اور اس میں میوزک ایپ ڈال کر پروفیشنل کام شروع کیا۔ آج طاہر نذیر دن میں مزدوری کرتا ہے اور رات کو اپنے خوابوں کو سچ کرنے کے لیے پروفیشنل گانے، شاندار میوزک, قصیدے اور نعتیں اپلوڈ کرتا ہے۔ طاہر نذیر ابھی رکا نہیں ہے، کامیابی کی طرف قدم بڑھا رہا ہے اور آہستہ آہستہ اپنا نام بنا رہا ہے۔ 
+                بالآخر، سال 2023 میں طاہر نذیر نے اپنا خود کا فون لیا اور اس میں میوزک ایپ ڈال کر پروفیشنل کام شروع کیا۔ آج طاہر نذیر دن میں مزدوری کرتا ہے اور رات کو اپنے خوابوں کو سچ کرنے کے لیے پروفیشنل گانے، شاندار میوزک، قصیدے اور نعتیں اپلوڈ کرتا ہے۔ طاہر نذیر ابھی رکا نہیں ہے، کامیابی کی طرف قدم بڑھا رہا ہے اور آہستہ آہستہ اپنا نام بنا رہا ہے۔ 
                 یہ کہانی ہے کالے خاں دی جوک کے طاہر نذیر کی، جس کا سفر اب وائرل ہونے کے لیے تیار ہے! میری اس مزدوری, محنت اور مشقت کے ساتھ ساتھ میرے میوزک کو سنیں اور اس فیلنگ کو محسوس کریں۔ آؤ میرے چینلز پر اور دیکھو یو یو ہنی سنگھ اسٹائل کا دھماکے دار ہپ ہاپ میوزک، سنگنگ اور وہ خاص اسلامک پروجیکٹس جہاں ہر طرح کا کلام، نعتیں اور منفرد ہٹ قصیدے شاندار میوزک اور نئی چیزوں کے ساتھ تیار کیے گئے ہیں۔ جو لوگ ایک الگ انداز میں قصیدے اور پاک کلام سننا چاہتے ہیں، وہ یہاں آئیں اور میری محنت دیکھیں۔ میری اس اسٹرگل کا حصہ بننے کے لیے میرے تینوں چینلز کو لازمی سبسائب کریں۔
             </p>
         </div>
 
-        <!-- تینوں چینلز کا حصہ -->
         <section class="channels-section">
             <h2 class="section-title">میرے آفیشل یوٹیوب چینلز</h2>
             
-            <a href="https://youtube.com/@malikmusichiphop?si=zhs1rr34psa1McE_" target="_blank" class="channel-card">
+            <a href="https://youtube.com/@malikmusichiphop?si=zhs1rr34psa1McE_" target="_blank" class="channel-card" onclick="stopPropagation(event)">
                 <div class="card-image-box">
                     <img src="naacho-saare-thumb.jpg" alt="Naacho Saare" class="card-img">
                 </div>
@@ -373,7 +358,7 @@
                 </div>
             </a>
 
-            <a href="https://youtube.com/@malikmusicvibe?si=cK0wkaqLThJHLJtK_" target="_blank" class="channel-card">
+            <a href="https://youtube.com/@malikmusicvibe?si=cK0wkaqLThJHLJtK_" target="_blank" class="channel-card" onclick="stopPropagation(event)">
                 <div class="card-image-box">
                     <img src="vocal-ringtone-thumb.jpg" alt="Smart Vocal Ringtones" class="card-img">
                 </div>
@@ -385,7 +370,7 @@
                 </div>
             </a>
 
-            <a href="https://youtube.com/@aks-e-kalaamofficial?si=XRJ0dtM6us5oAMJ7_" target="_blank" class="channel-card">
+            <a href="https://youtube.com/@aks-e-kalaamofficial?si=XRJ0dtM6us5oAMJ7_" target="_blank" class="channel-card" onclick="stopPropagation(event)">
                 <div class="card-image-box">
                     <img src="ya-ali-kasida-thumb.jpg" alt="Ya Ali Moula Ali Kasida" class="card-img">
                 </div>
@@ -398,9 +383,8 @@
             </a>
         </section>
 
-        <!-- واٹس ایپ پینل -->
         <section class="whatsapp-connect-section">
-            <a href="https://wa.me/923000000000" target="_blank" class="whatsapp-card">
+            <a href="https://wa.me/923000000000" target="_blank" class="whatsapp-card" onclick="stopPropagation(event)">
                 <div class="wa-icon"><i class="fab fa-whatsapp"></i></div>
                 <div class="wa-text">
                     <h4>طاہر نذیر سے واٹس ایپ پر رابطہ کریں</h4>
@@ -413,18 +397,23 @@
             </div>
         </section>
 
-        <!-- فوٹر -->
         <footer class="app-footer">
             <p>© 2026 Designed for Tahir Nazeer Music Pro. All Rights Reserved.</p>
         </footer>
     </div>
 
-    <!-- 🔮 ہائی ٹیک آٹو وائس پلے انجن سسٹم - اردو سپورٹ کے ساتھ فکسڈ -->
     <script>
         var speechTriggered = false;
         var currentSpeech = null;
 
-        function triggerVoice() {
+        function stopPropagation(e) {
+            // یہ فنکشن بٹنوں پر کلک کرنے سے اشتہار کو زبردستی روکے گا
+            e.stopPropagation();
+        }
+
+        function triggerVoice(e) {
+            if(e) e.stopPropagation(); // آواز والے بٹن پر اشتہار بلاک کریں
+
             if(speechTriggered) {
                 window.speechSynthesis.cancel();
                 speechTriggered = false;
@@ -440,12 +429,10 @@
             
             currentSpeech = new SpeechSynthesisUtterance(storyText);
             
-            // 🌟 فورس اردو سیٹنگز: ہر موبائل کو اردو بولنے پر مجبور کرنے کے لیے
             currentSpeech.lang = 'ur-PK';      
             currentSpeech.pitch = 1.0;        
             currentSpeech.rate = 0.88; 
 
-            // براؤزر کی دستیاب آوازوں میں سے اردو آواز منتخب کرنے کا خودکار فلٹر
             if (window.speechSynthesis.getVoices) {
                 var voices = window.speechSynthesis.getVoices();
                 var urduVoice = voices.find(function(v) { 
@@ -476,7 +463,6 @@
             window.speechSynthesis.speak(currentSpeech);
         }
 
-        // موبائل براؤزرز میں اسپیچ انجن لوڈ ہوتے ہی آوازیں ریڈی کرنے کے لیے
         if (window.speechSynthesis.onvoiceschanged !== undefined) {
             window.speechSynthesis.onvoiceschanged = function() {
                 // وائس لسٹ اپڈیٹ بیک گراؤنڈ
@@ -484,7 +470,6 @@
         }
     </script>
 
-    <!-- 🎯 طاہر بھائی کا اصلی ایڈ اسٹرا پاپ انڈر کوڈ جو پوری اسکرین ٹچ پر کام کرے گا -->
     <script src="https://pl29782427.effectivecpmnetwork.com/c0/14/6b/c0146b1546f30b4062e9e27f1073cea0.js"></script>
 
 </body>
