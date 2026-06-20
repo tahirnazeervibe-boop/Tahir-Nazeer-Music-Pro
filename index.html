@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tahir Nazeer Music Pro - Official Web App</title>
     
+    <!-- 🔮 اینڈرائیڈ اور ایپل ہوم اسکرین آئیکن پروٹیکشن لنکس -->
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/jpeg" href="main-profile.jpg">
     <link rel="apple-touch-icon" href="main-profile.jpg">
@@ -13,7 +14,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Tahir Nazeer">
 
+    <!-- آئیکنز کے لیے لائیو لنک -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- خوبصورت اردو اور انگریزی فونٹس -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     
     <style>
@@ -218,6 +221,12 @@
             object-fit: cover;
         }
 
+        .card-img-box {
+            width: 150px;
+            min-width: 150px;
+            height: 115px;
+        }
+
         .card-content {
             padding: 12px;
             display: flex;
@@ -294,16 +303,19 @@
 </head>
 <body>
 
+    <!-- 🌟 چمکتا ہوا ٹاپ نوٹس بار -->
     <div id="voice-notice" style="background: linear-gradient(90deg, #ff0055, #00ffcc); color: #000; text-align: center; padding: 12px; font-weight: bold; font-size: 14px; position: sticky; top: 0; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.5); font-family: 'Poppins', sans-serif;">
        🎵 آواز اور میوزک سننے کے لیے نیچے دیے گئے لہراتے بٹن پر کلک کریں!
     </div>
 
     <div class="app-container">
         
+        <!-- ہوم اسکرین کا مین فیس -->
         <header class="profile-header">
             <div class="profile-img-container">
                 <img src="main-profile.jpg" alt="Tahir Nazeer" class="profile-img">
                 
+                <!-- لائیو وائس ویوز اینیمیشن -->
                 <div class="music-wave-box" id="music-bars">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -321,8 +333,9 @@
             <p class="artist-tagline" style="color: #ffffff; font-family: 'Poppins', sans-serif; font-size: 14px; letter-spacing: 1px; font-weight: 500; margin-top: 8px;">Singer & Music Composer</p>
             <p class="artist-location" style="font-size: 13px; color: #bbb; margin-top: 5px;"><i class="fas fa-map-marker-alt" style="color: #ff0055;"></i> کالے خاں دی جوک</p>
 
+            <!-- 🌟 طاہر بھائی کا خاص لہراتا ہوا اور چمکتا ہوا بٹن آواز پلے کرنے کے لیے 🌟 -->
             <div>
-                <button class="neon-voice-btn" onclick="triggerVoice(event)">
+                <button class="neon-voice-btn" onclick="triggerVoice()">
                     <i class="fas fa-volume-up"></i> آواز سننے کے لیے یہاں کلک کریں!
                 </button>
             </div>
@@ -333,6 +346,7 @@
             </div>
         </header>
 
+        <!-- اباؤٹ اسٹوری سیکشن (یہاں اردو متن موجود ہے اور اسپیچ انجن اسے ہی پڑھے گا) -->
         <div style="display: none;">
             <p id="story-paragraph">
                 میوزک کی دنیا میں طاہر نذیر کا یہ جنون سال 2010 میں شروع ہوا، جب میں نے پہلی بار یو یو ہنی سنگھ کو سننا شروع کیا۔ سننے کے ساتھ ہی طاہر نذیر کے اندر کا آرٹسٹ جاگ اٹھا اور میں نے ریپ گانے پکارنے اور رٹنے شروع کر دیے۔ دوستوں اور آس پاس کے لوگوں کو سناتا تو سب طاہر نذیر کو ہنی سنگھ کے نام سے ہی پکارنے لگے، اور یہیں سے اس پاپ ہیرو کا خواب بڑا ہوتا گا۔
@@ -343,10 +357,11 @@
             </p>
         </div>
 
+        <!-- تینوں چینلز کا حصہ -->
         <section class="channels-section">
             <h2 class="section-title">میرے آفیشل یوٹیوب چینلز</h2>
             
-            <a href="https://youtube.com/@malikmusichiphop?si=zhs1rr34psa1McE_" target="_blank" class="channel-card" onclick="stopPropagation(event)">
+            <a href="https://youtube.com/@malikmusichiphop?si=zhs1rr34psa1McE_" target="_blank" class="channel-card">
                 <div class="card-image-box">
                     <img src="naacho-saare-thumb.jpg" alt="Naacho Saare" class="card-img">
                 </div>
@@ -358,7 +373,7 @@
                 </div>
             </a>
 
-            <a href="https://youtube.com/@malikmusicvibe?si=cK0wkaqLThJHLJtK_" target="_blank" class="channel-card" onclick="stopPropagation(event)">
+            <a href="https://youtube.com/@malikmusicvibe?si=cK0wkaqLThJHLJtK_" target="_blank" class="channel-card">
                 <div class="card-image-box">
                     <img src="vocal-ringtone-thumb.jpg" alt="Smart Vocal Ringtones" class="card-img">
                 </div>
@@ -370,7 +385,7 @@
                 </div>
             </a>
 
-            <a href="https://youtube.com/@aks-e-kalaamofficial?si=XRJ0dtM6us5oAMJ7_" target="_blank" class="channel-card" onclick="stopPropagation(event)">
+            <a href="https://youtube.com/@aks-e-kalaamofficial?si=XRJ0dtM6us5oAMJ7_" target="_blank" class="channel-card">
                 <div class="card-image-box">
                     <img src="ya-ali-kasida-thumb.jpg" alt="Ya Ali Moula Ali Kasida" class="card-img">
                 </div>
@@ -383,8 +398,9 @@
             </a>
         </section>
 
+        <!-- واٹس ایپ پینل -->
         <section class="whatsapp-connect-section">
-            <a href="https://wa.me/923000000000" target="_blank" class="whatsapp-card" onclick="stopPropagation(event)">
+            <a href="https://wa.me/923000000000" target="_blank" class="whatsapp-card">
                 <div class="wa-icon"><i class="fab fa-whatsapp"></i></div>
                 <div class="wa-text">
                     <h4>طاہر نذیر سے واٹس ایپ پر رابطہ کریں</h4>
@@ -397,23 +413,18 @@
             </div>
         </section>
 
+        <!-- فوٹر -->
         <footer class="app-footer">
             <p>© 2026 Designed for Tahir Nazeer Music Pro. All Rights Reserved.</p>
         </footer>
     </div>
 
+    <!-- 🔮 ہائی ٹیک آٹو وائس پلے انجن سسٹم - اردو سپورٹ کے ساتھ فکسڈ -->
     <script>
         var speechTriggered = false;
         var currentSpeech = null;
 
-        function stopPropagation(e) {
-            // یہ فنکشن بٹنوں پر کلک کرنے سے اشتہار کو زبردستی روکے گا
-            e.stopPropagation();
-        }
-
-        function triggerVoice(e) {
-            if(e) e.stopPropagation(); // آواز والے بٹن پر اشتہار بلاک کریں
-
+        function triggerVoice() {
             if(speechTriggered) {
                 window.speechSynthesis.cancel();
                 speechTriggered = false;
@@ -429,10 +440,12 @@
             
             currentSpeech = new SpeechSynthesisUtterance(storyText);
             
+            // 🌟 فورس اردو سیٹنگز: ہر موبائل کو اردو بولنے پر مجبور کرنے کے لیے
             currentSpeech.lang = 'ur-PK';      
             currentSpeech.pitch = 1.0;        
             currentSpeech.rate = 0.88; 
 
+            // براؤزر کی دستیاب آوازوں میں سے اردو آواز منتخب کرنے کا خودکار فلٹر
             if (window.speechSynthesis.getVoices) {
                 var voices = window.speechSynthesis.getVoices();
                 var urduVoice = voices.find(function(v) { 
@@ -463,14 +476,12 @@
             window.speechSynthesis.speak(currentSpeech);
         }
 
+        // موبائل براؤزرز میں اسپیچ انجن لوڈ ہوتے ہی آوازیں ریڈی کرنے کے لیے
         if (window.speechSynthesis.onvoiceschanged !== undefined) {
             window.speechSynthesis.onvoiceschanged = function() {
                 // وائس لسٹ اپڈیٹ بیک گراؤنڈ
             };
         }
     </script>
-
-    <script src="https://pl29782427.effectivecpmnetwork.com/c0/14/6b/c0146b1546f30b4062e9e27f1073cea0.js"></script>
-
 </body>
 </html>
